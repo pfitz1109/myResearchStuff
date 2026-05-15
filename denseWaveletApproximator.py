@@ -29,7 +29,7 @@ p = 6
 _validate_p(p)
 eps = 1e-6
 _validate_eps(eps)
-J = 5
+J = 10
 
 # domain
 left_bound = -3*np.pi
