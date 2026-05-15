@@ -32,8 +32,8 @@ _validate_eps(eps)
 J = 15
 
 # domain
-left_bound = -2*np.pi
-right_bound = 2*np.pi
+left_bound = -3*np.pi
+right_bound = 3*np.pi
 
 # function to be approximated
 def func(X):
