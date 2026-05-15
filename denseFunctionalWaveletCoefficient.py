@@ -10,7 +10,7 @@
     at lower resolution levels. Shouldn't technically be there, but the coefficients are so small anyways it doesn't really matter.
     2. In general - for a centrally-interesting function (i.e., sharp increase and decrease at the center of the function), the wavelet resolution level should 
     look like a pyramid. 
-    3. Adding this commen just to see how Git and GitHub responds. Woohoo!
+    3. Adding this comment just to see how Git and GitHub responds. Woohoo!
 """
 
 import numpy as np
@@ -27,17 +27,17 @@ subprocess.run('clear', shell=True)
 # accepts only values of p less than or equal to 10
 p = 6
 _validate_p(p)
-eps = 1e-6
+eps = 1e-3
 _validate_eps(eps)
 J = 10
 
 # domain
-left_bound = -3*np.pi
-right_bound = 3*np.pi
+left_bound = -2*np.pi
+right_bound = 2*np.pi
 
 # function to be approximated
 def func(X):
-    f = 10*np.tanh(5*-X)+10
+    f = 10*np.sin(X) - 5*np.sin(3*X) + 0.1*np.sin(20*X)
     return f
 
 """ S0 COMPUTATIONS """
