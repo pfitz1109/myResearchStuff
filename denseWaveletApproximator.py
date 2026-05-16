@@ -27,6 +27,8 @@ subprocess.run('clear', shell=True)
 # accepts only values of p less than or equal to 10
 p = 6
 _validate_p(p)
+# number of boundary conditions
+m = int((p-2)/2)
 eps = 1e-6
 _validate_eps(eps)
 J = 10
@@ -49,8 +51,6 @@ s0 = func(X0)
 
 """ Neville's Theorem for computing the filter coefficients h """
 coef = _compute_filter_coefficients(p)
-# number of boundary conditions
-m = int((p-2)/2)
 
 """ THRESHOLDING COEFFICIENTS """
 # generate empty lists that we will apend x-locations and approximate function values
