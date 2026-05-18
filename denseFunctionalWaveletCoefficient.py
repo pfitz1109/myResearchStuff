@@ -25,19 +25,19 @@ subprocess.run('clear', shell=True)
 """ USER INPUT PARAMETERS """
 # interpolation order, acceptable error, maximum resolution
 # accepts only values of p less than or equal to 10
-p = 6
+p = 4
 _validate_p(p)
-eps = 1e-3
+eps = 1e-2
 _validate_eps(eps)
 J = 10
 
 # domain
-left_bound = -2*np.pi
-right_bound = 2*np.pi
+left_bound = -3
+right_bound = 3
 
 # function to be approximated
 def func(X):
-    f = 10*np.sin(X) - 5*np.sin(3*X) + 0.1*np.sin(20*X)
+    f = np.sin(X)
     return f
 
 """ S0 COMPUTATIONS """
