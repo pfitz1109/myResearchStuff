@@ -26,3 +26,4 @@ def _compute_filter_coefficients(p: int) -> np.ndarray:
                     continue
                 coef[i,j] = coef[i,j]*(i+0.5-k)/(j-k)
     return coef
+

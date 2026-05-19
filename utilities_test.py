@@ -9,3 +9,5 @@ class TestNevillesTheorem(unittest.TestCase):
        actual = _compute_filter_coefficients(4)
 
        np.testing.assert_allclose(actual,expected, atol=1e-7)
+
+# add more cases here
