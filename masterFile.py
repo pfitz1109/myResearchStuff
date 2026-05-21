@@ -13,15 +13,60 @@ import subprocess
 from utilities import _validate_p, _validate_eps, _compute_filter_coefficients # type: ignore
 from FWT import FWT
 from BWT import BWT
+from denseFunctionalWaveletCoefficient import denseFunctionalWaveletCoefficient
 
 """ USER DEFINED INPUT PARAMETERS """
 # interpolation order, acceptable error, maximum resolution
 # accepts only values of p less than or equal to 10
-p = 4
+""" p = 6
 _validate_p(p)
 # define number of boundary conditions on each side
 m = int((p-2)/2)
 eps = 1e-6
 _validate_eps(eps)
-J = 10
+J = 10 """
 
+basis = [4, 6, 8, 10]
+threshold = np.logspace(-1,-10,10)
+
+for p in basis:
+
+    maxError = []
+
+    for thresh in threshold:
+        error = denseFunctionalWaveletCoefficient(thresh, p)
+        maxError.append(error)
+
+    maxError = np.array(maxError)
+
+    # Scatter plot
+    plt.scatter(threshold, maxError)
+
+    # Linear fit in log-log space
+    coeffs = np.polyfit(np.log10(threshold),
+                        np.log10(maxError), 1)
+
+    slope = coeffs[0]
+    intercept = coeffs[1]
+
+    # Trend line
+    fitLine = 10**intercept * threshold**slope
+
+    plt.plot(
+        threshold,
+        fitLine,
+        linestyle='--',
+        label=f'p={p}: {slope:.3f}'
+    )
+
+plt.xlabel(r'$\varepsilon$')
+plt.ylabel(r'$\|\cdot\|_\infty$')
+plt.title('Max Absolute Error vs. Threshold')
+
+plt.xscale('log')
+plt.yscale('log')
+
+plt.legend()
+plt.grid(True, which='both')
+
+plt.show()
