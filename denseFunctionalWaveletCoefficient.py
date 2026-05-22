@@ -6,159 +6,160 @@
 """ CODING NOTES """
 
 """ 
-    1. Noticing that some of the wavelet coefficients reach machine precision so the computer overwrites them as zeros. Explains some of the "gaps" you might see
-    at lower resolution levels. Shouldn't technically be there, but the coefficients are so small anyways it doesn't really matter.
-    2. In general - for a centrally-interesting function (i.e., sharp increase and decrease at the center of the function), the wavelet resolution level should 
-    look like a pyramid. 
-    3. Adding this comment just to see how Git and GitHub responds. Woohoo!
+Inputs: eps (threshold), p (interpolation basis), J (maximum resolution level), func (function to be appoximated),
+left_bound (left boundary of domain), right_bound (right boundary of domain)
+Outputs: sparse x-coordinates, sparse function approximation values, x-grid for computing the error, funtion approximations for 
+        computing the error, absolute error of approximation to analytical solution on x-grid for computing error, final resolution level 
+        achieved
+Functiona Goals: 
+    1. Computes the wavelet coefficients on a dense grid. A pseudo-sparse computation is performed to see what level of resolution
+        is necessary to achieve the desired threshold. Either the maximum level J is reached, or all the wavelet coefficients are below
+        the threshold. Will terminate computations once either of these conditions are met. 
+    2. Plots the grid points by resolution level across the domain for a given threshold value (if called).
 """
 
 import numpy as np
 import matplotlib.pyplot as plt
-import subprocess
-from utilities import _validate_p, _validate_eps, _compute_filter_coefficients # type: ignore
+from utilities import _validate_p, _validate_eps, _compute_filter_coefficients, wavelet_coefficient_generator # type: ignore
+from plottingUtilities import waveletResolutionLevelsPlotting
 
-def denseFunctionalWaveletCoefficient(eps,p):
+def denseFunctionalWaveletCoefficient(eps,p, J, func, left_bound, right_bound):    
 
-    # clear the output
-    subprocess.run('clear', shell=True)    
+    # compute the number of boundary "terms" for a given basis order
+    m = int((p-2)/2)
 
-    """ USER INPUT PARAMETERS """
-    # interpolation order, acceptable error, maximum resolution
-    # accepts only values of p less than or equal to 10
+    # validates that p is a positive, even integer less than or equal to 10, and that eps is positive
     _validate_p(p)
     _validate_eps(eps)
-    J = 10
-    # domain
-    left_bound = -3
-    right_bound = 3
-    # function to be approximated
-    def func(X):
-        f = 10*np.tanh(-5*X)+10
-        return f
 
     """ S0 COMPUTATIONS """
-    # coarsest grid 
+    # define coarsest grid 
     X0 = np.linspace(left_bound, right_bound, 2*p+1)
 
     # "s" coefficients 
     s0 = func(X0)
 
     """ Neville's Theorem for computing the filter coefficients h """
-    m = int((p-2)/2)
+    """ 
+        there are m=(p-2)/2 boundary points for a given basis order. The filter coefficent matrix "coef" is generated in an 
+        array format like so :
+
+        rows 0-(m-1): left-boundary filter coefficients (row 0: leftmost, row1: second from left, etc.)
+        row m: interior filter coefficients
+        rows (m+1)-p: right-boundary filter coefficients (row p: rightmost, row(p-1): second from right, etc.)
+    """
+
     coef = _compute_filter_coefficients(p)
 
-    """ THRESHOLDING COEFFICIENTS """
-    # generate empty lists that we will apend x-locations and approximate function values
+    # generate empty lists that we will apend x-values and approximate function values for plot of approximation
     nodeLocations = []
-    approximateValues = []
+    approximateValues = []\
+    
+    # generate empty lists that we will append x-values and resolution levels for plot of resolution across domain
+    xLevelsPlotting = []
+    levelsPlotting = []
+
     # append the s0 coefficients and their corresponding x-coordinates
     nodeLocations.append(X0); approximateValues.append(s0)
 
-    coarseX = X0
-    # sticking this here so this appears as the first array to be plotted 
-    plt.scatter(X0, np.zeros(len(X0)), label='Resolution Level j = 0')
+    """ THRESHOLDING COEFFICIENTS """   
 
-    # for-loop that computes the thresholding coefficients for a given resolution level
-    # d = dot(filterCoefficients,coarseF[neighboringPoints]) - refinedF[currentNode] 
+    # have to redefine the coarse grid here for the for-loop
+    coarseX = X0
+
+    # begin for-loop to compute d-coefficients at each collocation point
     for j in range(1,J+1):
-        # print(f'\n###### Resolution Level {j} #######')
-        # number of midpoint nodes generated
-        N = 2**(j)*p
-        # generate d vector, will store thresholding coefficients in here
-        d = np.zeros(N)
+
+        # comnpute dx_j to get an idea of the resolution we are using
+        dx = (right_bound-left_bound)/(2**(j+1)*p)
+
         # evaluate function on previous mesh, necessary for fSquiggle vector used to compute thresholding coefficients
         coarseF = func(coarseX)
 
         # define new mesh 
         refinedX = np.linspace(left_bound, right_bound, 2**(j+1)*p+1)
-        # comnpute dx_j to get an idea of the resolution we are using
-        gridStepSize = (right_bound-left_bound)/(2**(j+1)*p)
-        # print(f'dX : {gridStepSize:.3f}')
 
-        # evaluate function on the new mesh, needed for thresholding computation 
+        # evaluate function on the new mesh 
         refinedF = func(refinedX)
-        plottingF = np.zeros(N)
-        # going through every midpoint in the refined grid
-        for k in range(0,N):
-            # at each collocation point, compute the corresponding fSquiggle vector; compute d at the node; compute the approximated (exact?) function value
-            # left boundary condition(s)
-            if k < m:
-                fSquiggle = coarseF[0:p]
-                d[k] = np.dot(fSquiggle,coef[k,:]) - refinedF[2*k+1]
-                if abs(d[k]) <= eps:
-                    d[k] = 0
-                plottingF[k] = np.dot(fSquiggle,coef[k,:]) - d[k]
-            # right boundary condition(s)
-            elif k > N-(m+1):
-                fSquiggle = coarseF[-p:]
-                d[k] = np.dot(fSquiggle,coef[2*m+1-(N-k),:]) - refinedF[2*k+1]
-                if abs(d[k]) <= eps:
-                    d[k] =0
-                plottingF[k] = np.dot(fSquiggle,coef[2*m+1-(N-k)])-d[k]
-            # interior points
-            else: 
-                fSquiggle = coarseF[k-int(p/2)+1:k+int(p/2)+1]
-                d[k] = np.dot(fSquiggle,coef[m,:]) - refinedF[2*k+1]
-                if abs(d[k]) <= eps:
-                    d[k] =0
-                plottingF[k] = np.dot(fSquiggle,coef[m,:]) - d[k]
 
-        # thresholding operation
-        dThreshold = np.copy(d)
-        dThreshold[abs(dThreshold) <= eps] = 0
-        plottingIndicies = np.where(dThreshold !=0)[0] # grabs the indices of the nonzero (non-thresholded) nodes for plotting purposes
-        # generate plotting nodes for this specfic 
-        xPlotting = np.arange(left_bound+gridStepSize, right_bound, 2*gridStepSize)
+        # initialize this array to store the function values we will plot later
+        plottingF = np.zeros(2**j*p)
+
+        """ This is where the magic happens - computes the coefficients at the current resolution level"""
+        d, plottingF = wavelet_coefficient_generator(p, j, m, eps, coef, coarseF, refinedF)
+
+        # grab the index of nonzero coefficients for plotting purposes
+        plottingIndicies = np.where(d !=0)[0] 
+
+        # generate x-grid for current resolution level - does NOT include points on previous grids, hence the use of np.arange
+        xPlotting = np.arange(left_bound+dx, right_bound, 2*dx)
 
         # establish termination conditions 
+
+        # first check to see if we have reached our user-defined maximum resolution level
         if (j==J):
-            print(f'\nReached maximum resolution level J={J} without all wavelet coefficients falling below thresholding level. Final wavelet coefficients for resolution level j={j} with grid step size {gridStepSize:.3f}:')
-            print(d)
-        elif (np.count_nonzero(dThreshold) == 0):
-            print(f'\nAll wavelet coefficients are below thresholding value for resolution level j={j}, terminating algorithm.')
-            print(f"Maximum Resolution Required for {eps} Accuracy: j = {j-1}")
+            print(f'\nReached maximum resolution level J={J} without all wavelet coefficients falling below thresholding level.')
+            break
+        # then check if all the coefficients are less than our threshold
+        elif (np.count_nonzero(d) == 0):
+            print(f"Maximum Resolution Required for {eps} Accuracy and Basis Order p = {p}: j = {j-1}")
             break
 
-        # for plotting of the wavelet approximation 
-        nodeLocations.append(xPlotting[plottingIndicies]) # save the x-coordinates with nonzero wavelet coefficients
+        # if we have not reached termination conditions, continue with the below operations
+
+        # save the x-coordinates with nonzero wavelet coefficients
+        nodeLocations.append(xPlotting[plottingIndicies]) # save the x-coordinates of the non-zero coefficients
         approximateValues.append(plottingF[plottingIndicies]) # save the approximate function values corresponding to the above x-coordinates
         
-        # storing data for grid resolution figure
-        sparsePlotting = np.float64(abs(dThreshold) > 0)*j
+        # after thresholding, check to see if the coefficient magnitude is greater than zero. if yes (which is a 1), multiply by j. this returns the 
+        # resolution level at the corresponding collocation point. Probably a more efficient way to do this, but this is easiest.
+        sparsePlotting = np.float64(abs(d) > 0)*j
+
+        # for those coefficients that are zero, set them equal to NaN - Python ignores them while plotting
         sparsePlotting[sparsePlotting == 0] = np.nan
-        plt.scatter(xPlotting, sparsePlotting, label = f'Resolution Level j = {j}')
+
+        # storing resolution level and x-coordinate for plotting
+        xLevelsPlotting.append(xPlotting)
+        levelsPlotting.append(sparsePlotting)
 
         # redefine new mesh as old mesh - need this for next resolution level
         coarseX = refinedX
 
-    """ ERROR APPROXIMATION (PERFORMED AT j+1 LEVEL)"""
-    errorX = np.arange(left_bound+gridStepSize, right_bound, 2*gridStepSize)
+    """ 
+        Note that the way this code is written, the above for-loop will generate the coefficients for the resolution level ABOVE what is necessary for 
+        a certain threshold. For example, if only j=1 resolution is required to achieve a threshold of eps=0.01, the for-loop will set and check the resolution
+        level j=2. The coefficients, function values, and plotting information is computed and stored for this next-highest resolution level. This makes 
+        error computation super simple.
+    """
+
+    # convert lists of significant x-coordinates and function approximations into numpy arrays
+    approximateX = np.concatenate(nodeLocations); approximateF = np.concatenate(approximateValues)
+
+    """ ERROR APPROXIMATION """
+    """ To compute the error of the approximation, we step to the next resolution level, compute the dense wavelet approximation, and then generate an approximation
+        of the function. We then compare this to the analytical function evaluated on that grid.
+        Because we have already generated this next-highest level in the for-loop (see above comment block), we can pull that information and use it. We don't have to 
+        go through another computation of it.
+    """
+
+    # generate grid for j_final + 1 resolution level and evaluate the analytical function on this grid
+    errorX = np.arange(left_bound+dx, right_bound, 2*dx)
     errorF = func(errorX)
+
+    # plotting F comes from for-loop 
     absoluteError = abs(errorF - plottingF)
 
-    """ PLOTTING """ 
+    """ plot the resolution level at a given collocation point """ 
+    # // COMMENETD OUT FOR SOME SORT OF ERROR? Can't figure out what it's doing wrong
+    # fails after eps=1e-4, so strange
+    # waveletResolutionLevelsPlotting(X0, xLevelsPlotting, levelsPlotting, eps)
 
-    # plotting resolution and nodes across grid 
-    plt.xlabel('x'); plt.ylabel('Resolution Level'); plt.title(fr'Resolution Levels Across Grid for $\varepsilon$ = {eps}'); plt.legend(loc = 'best')
-    plt.show()
-    plottingX = xPlotting
-
-    # wavelet reconstructed approximation 
-    # convert the appended lists into numpy arrays
-
-    approximateX = np.concatenate(nodeLocations); approximateF = np.concatenate(approximateValues)
-    plt.scatter(approximateX, approximateF, label ='Wavelet Approximations')
-    # plotting analytical function
-    functionalX = np.linspace(left_bound,right_bound,1000)
-    functionalY = func(functionalX)
-    plt.plot(functionalX,functionalY, label='Analytical Solution', color='r')
-    plt.title(fr'Analytical vs Approximate for $\varepsilon$ ={eps}'); plt.xlabel('x'); plt.ylabel('f(x)'); plt.legend();
-    plt.show()
-
-    # plotting absolute error across domain 
-    plt.plot(errorX, absoluteError, label ='Absolute Error')
-    plt.xlabel('x'); plt.ylabel(r'$||\cdot||_\infty$'); plt.title(fr'Absolute Error at j={j} Resolution for $\varepsilon$={eps}')
-    plt.show()
-
-    return (max(absoluteError))
+    """ Function Outputs: 
+        sparse x-coordinates
+        sparse function approximation values
+        x-grid for computing the error
+        funtion approximations for computing the error
+        absolute error of approximation to analytical solution on x-grid for computing error
+        final resolution level achieved 
+    """
+    return (approximateX, approximateF, errorX, errorF, absoluteError, j)
