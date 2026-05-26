@@ -20,7 +20,7 @@ Functiona Goals:
 
 import numpy as np
 import matplotlib.pyplot as plt
-from waveletApproximator_v2.utilities import _validate_p, _validate_eps, _compute_filter_coefficients, wavelet_coefficient_generator # type: ignore
+from utilities import _validate_p, _validate_eps, _compute_filter_coefficients, wavelet_coefficient_generator # type: ignore
 from plottingUtilities import waveletResolutionLevelsPlotting
 
 def denseFunctionalWaveletCoefficient(eps,p, J, func, left_bound, right_bound):    
