@@ -16,7 +16,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import subprocess
-from utilities import _validate_p, _validate_eps, _compute_filter_coefficients # type: ignore
+from waveletApproximator_v2.utilities import _validate_p, _validate_eps, _compute_filter_coefficients # type: ignore
 
 # clear the output
 subprocess.run('clear', shell=True)    

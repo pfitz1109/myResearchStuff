@@ -1,6 +1,6 @@
 """ Little code to run some debugging stuff, easier to do it this way imo """
 
-from utilities import wavelet_coefficient_generator, _compute_filter_coefficients
+from waveletApproximator_v2.utilities import wavelet_coefficient_generator, _compute_filter_coefficients
 import numpy as np 
 
 coarseX1 = np.linspace(0, 2*np.pi, 9)

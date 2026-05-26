@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from utilities import _compute_filter_coefficients, wavelet_coefficient_generator
+from waveletApproximator_v2.utilities import _compute_filter_coefficients, wavelet_coefficient_generator
 
 class TestNevillesTheorem(unittest.TestCase):
     def test_coefficients(self):
