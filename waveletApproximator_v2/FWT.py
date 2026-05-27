@@ -3,7 +3,8 @@
 """
     This function generates the 'F' matrix that converts discrete physical points
     to wavelet coefficients. It makes use of the filter coefficient function 
-    defined in the "utilities" program to construct the entries within the matrix.
+    defined in the "utilities" program to construct the entries within the matrix,
+    as well as the gTilde and hTilde functions located in that same program. 
     Note that the matrix is not constructed sparsely for simplicity - this is NOT
     meant to be a computationally-efficient program, but instead one that achieves
     the correct results. 
@@ -75,5 +76,5 @@ def FWT(p,J,func,left_bound,right_bound) :
     
     # compute the d array 
     d = F @ evalF
-    
+
     return F, d

@@ -1,0 +1,118 @@
+""" TRANSFORM UTILITIES """
+
+""" 
+    Contains functions that perform various tasks for generating wavelet
+    transformation matrices 'F' and 'B'. Included in this program are 
+
+    1. hTildeMatrixConstructor - constructs the hTilde matrix, given basis 
+    'p' and resolution level 'j'
+    2. gTildeMatrixConstructor - constructs the gTilde matrix, given basis
+    'p', resolution level 'j', and filter coefficient matrix 'filterCoefficients'
+    3. hMatrixConstructor - constructs the hMatrix, given basis 'p', 
+    resolution level 'j', and filter coefficient matrix 'filterCoefficients'
+    4. gMatrixConstructor - constructs the gMatrix, given basis 'p; and 
+    resolution level 'j'
+    5. thresholdCoefficients - thresholds the wavelet coefficients 'd' to a user-
+    specified value 'eps'
+"""
+
+import numpy as np
+
+# constructs the hTilde matrix for a given resolution level j and basis order p
+def hTildeMatrixConstructor(j,p):
+    # given definition 
+    num_rows = 2**j*p+1; num_cols = 2**(j+1)*p+1
+    hTildeMatrix = np.zeros((num_rows, num_cols))
+    hTildeMatrix[:, ::2] = np.eye(num_rows)
+    return hTildeMatrix
+
+# constructs the gTilde matrix for a given resolution level j and basis order p
+# and filterCoefficient matrix (generated from Neville's theorem above)
+def gTildeMatrixConstructor(j,p, filterCoefficients):
+    # given definition
+    num_rows = 2**j*p; num_columns = 2**(j+1)*p+1
+
+    # grab the number of rows in the filterCoefficients matrix - will tell you
+    # how many boundary conditions there are
+    filterCoefficientsSize = filterCoefficients.shape[0]
+
+    # determine number of boundary coefficient rows
+    m = int((filterCoefficientsSize-1)/2)
+
+    # generat a blank matrix that we are going to fill in
+    gTildeMatrix = np.zeros((num_rows,num_columns))
+
+    # have to go row-by-row and assign values to each row
+    for r in range(0,num_rows):
+        # assign left-boundary rows 
+        if r < m:
+            gTildeMatrix[r, 0:(2*p-1):2 ] = filterCoefficients[r, :]
+            # needs an entry of -1 at the point to be interpolated
+            gTildeMatrix[r, 2*r+1] = -1 
+
+        # right-boundary rows - slightly more tricky since we have to compute
+        # the starting column a priori
+        elif r > num_rows - (m+1) :
+            row_start = num_columns - (2*p-1)
+            # don't ask me how i got the indexing formula
+            gTildeMatrix[r, row_start : row_start + (2*p-1) : 2 ] = filterCoefficients[2*m+1-(num_rows-r), :]
+            # needs an entry of -1 at the point to be interpolated
+            gTildeMatrix[r, 2*r+1] = -1 
+
+        # interior rows
+        else:
+            start_column = 2 * (r-m)
+            end_column = 2 * (r-m) + 2*p-1
+            gTildeMatrix[r, start_column:end_column:2] = filterCoefficients[m,:]
+            # needs an entry of -1 at the point to be interpolated 
+            gTildeMatrix[r, 2*r+1] = -1
+
+    return gTildeMatrix
+
+def gMatrixConstructor(p,j) :
+    # given definition
+    num_rows = 2**(j+1)*p + 1; num_cols = 2**j*p
+
+    # create blank matrix that we will fill in later
+    gMatrix = np.zeros((num_rows, num_cols))
+
+    # every other row is blank
+    gMatrix[1: 1 + 2*num_cols:2, :] = -np.eye(num_cols)
+    
+    return gMatrix
+
+def hMatrixConstructor(p,j,filterCoefficients):
+    # given definition
+    num_rows = 2**(j+1)*p+1; num_cols = 2**j*p + 1
+
+    # grab the number of rows in the filterCoefficients matrix - will tell you
+    # how many boundary conditions there are
+    filterCoefficientsSize = filterCoefficients.shape[0]
+
+    # determine number of boundary coefficient rows
+    m = int((filterCoefficientsSize-1)/2)
+
+    # generate a blank matrix that we are going to fill in
+    gTildeMatrix = np.zeros((num_rows,num_cols))
+
+    return gTildeMatrix
+
+
+# apply thresholding parameter to d-coefficients
+def thresholdCoefficients(p, d, eps):
+    # create a copy of d
+    dThreshold = np.copy(d)
+
+    # need to remove the s0 coefficients, they should not be thresholded
+    s0 = dThreshold[:2*p+1]
+    coefficientThreshold = dThreshold[2*p+1:]
+
+    # apply thresholding value 
+    coefficientThreshold[np.abs(coefficientThreshold) < eps] = 0
+
+    # add the s0 coefficients back
+    dComplete = np.concatenate((s0,coefficientThreshold))
+
+    # return the s0 coefficients, the thresholded d-coefficients, and the 
+    # s0+thresholded coefficients (to be used in the backward transform)
+    return s0, coefficientThreshold, dComplete

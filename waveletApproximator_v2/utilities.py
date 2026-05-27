@@ -55,26 +55,27 @@ def gTildeMatrixConstructor(j,p, filterCoefficients):
             gTildeMatrix[r, 0:(2*p-1):2 ] = filterCoefficients[r, :]
             # needs an entry of -1 at the point to be interpolated
             gTildeMatrix[r, 2*r+1] = -1 
+
         # right-boundary rows - slightly more tricky since we have to compute
         # the starting column a priori
         elif r > num_rows - (m+1) :
-            last_row_start = num_columns - (2*p-1)
+            row_start = num_columns - (2*p-1)
             # don't ask me how i got the indexing formula
-            gTildeMatrix[r, last_row_start : last_row_start + (2*p-1) : 2 ] = filterCoefficients[2*m+1-(num_rows-r), :]
+            gTildeMatrix[r, row_start : row_start + (2*p-1) : 2 ] = filterCoefficients[2*m+1-(num_rows-r), :]
             # needs an entry of -1 at the point to be interpolated
             gTildeMatrix[r, 2*r+1] = -1 
+
         # interior rows
         else:
             start_column = 2 * (r-m)
             end_column = 2 * (r-m) + 2*p-1
-            mid_column = start_column + int((end_column - start_column - 1)/2)
             gTildeMatrix[r, start_column:end_column:2] = filterCoefficients[m,:]
-            # the middle entry needs a value of -1 
-            gTildeMatrix[r, mid_column] = -1
+            # needs an entry of -1 at the point to be interpolated 
+            gTildeMatrix[r, 2*r+1] = -1
 
     return gTildeMatrix
 
-# sort and threshold (ST) function for the d-coefficients
-def coefficientST(d, J, p):
-    # sort the 
+# apply thresholding parameter to d-coefficients
+def thresholdCoefficients(d, eps):
+    dThreshold = np.copy(d)
     return
