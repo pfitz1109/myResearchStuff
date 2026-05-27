@@ -33,7 +33,7 @@
 """
 
 import numpy as np
-from utilities import _compute_filter_coefficients 
+from utilities import _compute_filter_coefficients, hTildeMatrixConstructor, gTildeMatrixConstructor
 
 def FWT(p,J,func,left_bound,right_bound) :
     # number of boundary conditions
@@ -56,22 +56,24 @@ def FWT(p,J,func,left_bound,right_bound) :
     # think that you're going to need a for-loop to construct the F matrix
     for j in range(1,J):
         # create a blank identity to fill in - bottom-right corner will always
-        # be an identity matrix. just have to fill in the top-left 2^(j)*p+1
-        # entries i think 
+        # be an identity matrix. just have to fill in the top-left 2^(j)*p+1 entries
         levelF = np.eye(2**(J)*p+1,2**(J)*p+1)
 
-        # have to go entry-by-entry to fill this stuff in :(
-        for r in range(0,2**j*p):
-            for c in range(0,2**j*p):
-                if r < m:
-                    levelF
-        
+        # construct the hTilde and gTilde matrices for this resolution level
+        hTilde = hTildeMatrixConstructor(j,p)
+        gTilde = gTildeMatrixConstructor(j,p,filterCoefficients)
 
-        
+        # concatenate (put the hTilde on top, gTilde on bottom - vertically stack)
+        comboMatrix = np.vstack((hTilde,gTilde))
+
+        # set the upper-left quadrant of levelF to be this new matrix
+        combo_rows, combo_cols = comboMatrix.shape
+        levelF[:combo_rows, :combo_cols] = comboMatrix
 
         # update F 
         F = F @ levelF
     
     # compute the d array 
     d = F @ evalF
+    
     return F, d

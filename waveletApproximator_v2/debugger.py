@@ -5,7 +5,8 @@
 """
 
 import numpy as np
-from utilities import _compute_filter_coefficients
+from utilities import _compute_filter_coefficients, hTildeMatrixConstructor, gTildeMatrixConstructor
+from FWT import FWT
 
 left_bound = 0
 right_bound = 2*np.pi
@@ -22,8 +23,5 @@ d = []
 finestX = np.linspace(left_bound,right_bound,2**(J)*p+1)
 f = func(finestX)
 
-filterCoefficients = _compute_filter_coefficients(4)
-interiorCoefficients = filterCoefficients[m,:]
-
-interiorFilterCoefficientVector = np.stack((interiorCoefficients, np.zeros_like(interiorCoefficients)), axis=-1).flatten()
-print(interiorFilterCoefficientVector)
+F, d = FWT(p, 3, func, left_bound, right_bound)
+print(d)
