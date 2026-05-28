@@ -12,10 +12,12 @@
 """
 
 import numpy as np
+import time
 from utilities import _compute_filter_coefficients
 from transformUtilities import hMatrixConstructor, gMatrixConstructor
 
-def BWT(p,J,d):
+def BWT(p,J,completeCoefficientArray):
+    print('Performing BWT...')
     # number of boundary conditions 
     m = int((p-2)/2)
 
@@ -24,7 +26,11 @@ def BWT(p,J,d):
 
     # initialize an identity matrix for B
     B = np.eye(2**(J)*p+1)
-    # will need to construct each resolution level's F matrix and assemble
+
+    # time and status printout 
+    start_time = time.time()
+    print('Constructing BWT operator...')
+    # will need to construct each resolution level's B matrix and assemble
     # it via repeated matrix multiplication
     for j in range(1,J):
         # create a blank identity matrix that we will fill in - bottom-right
@@ -45,8 +51,13 @@ def BWT(p,J,d):
 
         # update B - note that it is left-multiplied, opposite order of F
         B = levelB @ B
+    end_time = time.time()
+    computationTime = end_time - start_time
+    print(f'Time to Construct BWT Operator: {computationTime:.3f}')
 
     # compute the f array
-    f = B @ d
+    f = B @ completeCoefficientArray
+
+    print('BWT Complete.')
 
     return B, f

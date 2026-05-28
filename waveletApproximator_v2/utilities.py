@@ -26,3 +26,27 @@ def _compute_filter_coefficients(p: int) -> np.ndarray:
                     continue
                 coef[i,j] = coef[i,j]*(i+0.5-k)/(j-k)
     return coef
+
+# returns the absolute error at each collocation point and the maximum error
+# for a given approximation against the exact solution
+def errorEvaluation(J,p,left_bound, right_bound, func, fApproximate):
+    # generate fExact on grid using  2**(J)*p+1 points
+    xExact = np.linspace(left_bound, right_bound, 2**(J)*p+1)
+    fExact = func(xExact)
+
+    # compute error array on domain
+    errorArray = abs(fExact - fApproximate)
+    maxError = max(errorArray)
+
+    print(f'Maximum Absolute Error on Domain: {maxError}')
+
+    return errorArray, maxError
+
+# compares the maximum absolute error to the thresholding value 
+def confirmThreshold(maxError, eps):
+    result = maxError < eps
+    if result == False:
+        print('Maximum error on domain is greater than epsilon. Cannot guarantee accuracy of approximation.')
+    else:
+        print('Maximum error on domain is less than epsilon. Accuracy guaranteed.')
+    return result

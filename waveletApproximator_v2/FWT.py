@@ -34,10 +34,13 @@
 """
 
 import numpy as np
+import time
 from utilities import _compute_filter_coefficients
 from transformUtilities import hTildeMatrixConstructor, gTildeMatrixConstructor
 
 def FWT(p,J,func,left_bound,right_bound) :
+    #print out, because i like to know the status of things 
+    print('Performing FWT...')
     # number of boundary conditions
     m = int((p-2)/2)
 
@@ -50,7 +53,12 @@ def FWT(p,J,func,left_bound,right_bound) :
 
     # initialize an identity matrix as F
     F = np.eye(2**(J)*p+1)
-    # think that you're going to need a for-loop to construct the F matrix
+
+    # timing and printing display
+    start_time = time.time()
+    print('Constructing FWT matrix...')
+
+    # will have to iterate over every resolution level in order to generate F
     for j in range(1,J):
         # create a blank identity to fill in - bottom-right corner will always
         # be an identity matrix. just have to fill in the top-left 2^(j)*p+1 entries
@@ -69,8 +77,16 @@ def FWT(p,J,func,left_bound,right_bound) :
 
         # update F 
         F = F @ levelF
-    
+    end_time = time.time()
+    computationTime = end_time - start_time
+
+    print(f'Time to Construct FWT Operator: {computationTime:.3f}')
+
+
+    print('Computing coefficients...')
     # compute the d array 
     d = F @ evalF
+
+    print('FWT Complete.')
 
     return F, d
