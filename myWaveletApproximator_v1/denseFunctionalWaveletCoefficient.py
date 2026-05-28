@@ -149,10 +149,9 @@ def denseFunctionalWaveletCoefficient(eps,p, J, func, left_bound, right_bound):
     # plotting F comes from for-loop 
     absoluteError = abs(errorF - plottingF)
 
-    """ plot the resolution level at a given collocation point """ 
-    # // COMMENETD OUT FOR SOME SORT OF ERROR? Can't figure out what it's doing wrong
-    # fails after eps=1e-4, so strange
-    # waveletResolutionLevelsPlotting(X0, xLevelsPlotting, levelsPlotting, eps)
+    """ plot the resolution level at a given collocation point """
+    print(xLevelsPlotting, levelsPlotting)
+    waveletResolutionLevelsPlotting(X0, xLevelsPlotting, levelsPlotting, eps)
 
     """ Function Outputs: 
         sparse x-coordinates

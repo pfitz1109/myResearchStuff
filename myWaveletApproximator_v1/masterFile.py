@@ -21,8 +21,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from plottingUtilities import waveletApproximationPlotting, waveletApproximationErrorPlotting
-from FWT import FWT
-from BWT import BWT
 from denseFunctionalWaveletCoefficient import denseFunctionalWaveletCoefficient
 
 """ USER DEFINED INPUT PARAMETERS """
@@ -52,7 +50,7 @@ for p in basis:
         waveletApproximationPlotting(func, approximateX, approximateF, thresh, left_bound, right_bound)
 
         # plot the error across the domain for the final resolution level achieved
-        # waveletApproximationErrorPlotting(errorX, absoluteError, j_final, thresh)
+        waveletApproximationErrorPlotting(errorX, absoluteError, j_final, thresh)
 
         # we really only want the maximum of the absolute error to generate the convergence plot 
         maximumError = max(abs(absoluteError))

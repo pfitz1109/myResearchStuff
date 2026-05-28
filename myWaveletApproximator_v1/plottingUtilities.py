@@ -38,6 +38,9 @@ def waveletResolutionLevelsPlotting(X0, xLevelsPlotting, levelsPlotting, eps) ->
     # scatter plot of the lowest-resolution grid points - putting this here so it appears first in the plot 
     plt.scatter(X0, np.zeros(len(X0)), label='Resolution Level j = 0')
 
+    # have to convert to numpy arrays first
+    xLevelsPlotting = np.concatenate(xLevelsPlotting); levelsPlotting=np.concatenate(levelsPlotting)
+
     plt.scatter(xLevelsPlotting, levelsPlotting, color='black')
     plt.xlabel('x'); plt.ylabel('Resolution Level'); plt.title(fr'Resolution Levels Across Grid for $\varepsilon$ = {eps}'); plt.legend(loc = 'best')
     plt.show()
