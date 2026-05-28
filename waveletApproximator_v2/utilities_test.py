@@ -1,6 +1,8 @@
 import unittest
 import numpy as np
 from utilities import _compute_filter_coefficients
+from transformUtilities import gTildeMatrixConstructor, gMatrixConstructor, hTildeMatrixConstructor, hMatrixConstructor
+from FWT import FWT
 
 class TestNevillesTheorem(unittest.TestCase):
     def test_coefficients(self):

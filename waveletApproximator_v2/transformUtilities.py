@@ -53,9 +53,9 @@ def gTildeMatrixConstructor(j,p, filterCoefficients):
         # right-boundary rows - slightly more tricky since we have to compute
         # the starting column a priori
         elif r > num_rows - (m+1) :
-            row_start = num_columns - (2*p-1)
+            col_start = num_columns - (2*p-1)
             # don't ask me how i got the indexing formula
-            gTildeMatrix[r, row_start : row_start + (2*p-1) : 2 ] = filterCoefficients[2*m+1-(num_rows-r), :]
+            gTildeMatrix[r, col_start : col_start + (2*p-1) : 2 ] = filterCoefficients[2*m+1-(num_rows-r), :]
             # needs an entry of -1 at the point to be interpolated
             gTildeMatrix[r, 2*r+1] = -1 
 
@@ -81,6 +81,8 @@ def gMatrixConstructor(p,j) :
     
     return gMatrix
 
+# follows a very similar to structure to how the gTilde matrix is constructed,
+# but done so in the "vertical" direction instead
 def hMatrixConstructor(p,j,filterCoefficients):
     # given definition
     num_rows = 2**(j+1)*p+1; num_cols = 2**j*p + 1
@@ -93,9 +95,31 @@ def hMatrixConstructor(p,j,filterCoefficients):
     m = int((filterCoefficientsSize-1)/2)
 
     # generate a blank matrix that we are going to fill in
-    gTildeMatrix = np.zeros((num_rows,num_cols))
+    hMatrix = np.zeros((num_rows,num_cols))
 
-    return gTildeMatrix
+    # assign unity values where necessary
+    for c in range(num_cols):
+        hMatrix[2*c, c] = 1
+
+    # diagram in "How to Wavelet" is misleading - see my own resource for why
+    # we construct the matrix this way
+    num_odd_rows = 2**j*p
+    for r in range(num_odd_rows):
+        
+        # Left-boundary conditions
+        if r < m:
+            hMatrix[2*r+1, 0:p] = filterCoefficients[r, :]
+            
+        # Right-boundary conditions
+        elif r > num_odd_rows - (m+1):
+            hMatrix[2*r+1, num_cols-p : num_cols] = filterCoefficients[2*m+1 - (num_odd_rows - r), :]
+            
+        # Interior conditions
+        else: 
+            start_c = r - m
+            hMatrix[2*r+1, start_c : start_c + p] = filterCoefficients[m, :]
+
+    return hMatrix
 
 
 # apply thresholding parameter to d-coefficients
