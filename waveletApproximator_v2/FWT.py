@@ -34,14 +34,12 @@
 """
 
 import numpy as np
-from utilities import _compute_filter_coefficients, hTildeMatrixConstructor, gTildeMatrixConstructor
+from utilities import _compute_filter_coefficients
+from transformUtilities import hTildeMatrixConstructor, gTildeMatrixConstructor
 
 def FWT(p,J,func,left_bound,right_bound) :
     # number of boundary conditions
     m = int((p-2)/2)
-
-    # create an empty container to store the wavelet coefficients
-    d = []
 
     # discretize signal on finest resolution
     finestX = np.linspace(left_bound,right_bound,2**(J)*p+1)
@@ -49,8 +47,6 @@ def FWT(p,J,func,left_bound,right_bound) :
 
     # generate filter coefficients 
     filterCoefficients = _compute_filter_coefficients(p)
-
-    # generate hTilde vectors 
 
     # initialize an identity matrix as F
     F = np.eye(2**(J)*p+1)
