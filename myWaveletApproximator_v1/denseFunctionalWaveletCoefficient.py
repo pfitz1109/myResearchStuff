@@ -150,7 +150,6 @@ def denseFunctionalWaveletCoefficient(eps,p, J, func, left_bound, right_bound):
     absoluteError = abs(errorF - plottingF)
 
     """ plot the resolution level at a given collocation point """
-    print(xLevelsPlotting, levelsPlotting)
     waveletResolutionLevelsPlotting(X0, xLevelsPlotting, levelsPlotting, eps)
 
     """ Function Outputs: 
