@@ -21,22 +21,22 @@ J = 8
 epsilonArray = np.logspace(-1,-9,9)
 
 # wavelet basis order
-p = 4
+p = 6
 
 # spatial derivative to be approximated
-a = 1
+a = 2
 
 # signal to be approximated
 def func(X):
-    return np.exp(-4*X**2)
+    return np.sin(X)
 
 # if known - signal's 'a'-th derivative (using first derivative for simplicity)
 def dFunc(X):
-    return-8*np.exp(-4*X**2)*X
+    return -np.sin(X)
 
 # bounds
-left_bound = -10
-right_bound = 10
+left_bound = 0
+right_bound = 2*np.pi
 
 # status_update - if set to true, will print out status updates
 status_update = False
@@ -67,7 +67,7 @@ for eps in epsilonArray:
     """ ERROR OF DERIVATIVE APPROXIMATION """
     derivativeErrorArray, maxDerivativeError = errorEvaluation(J,p,left_bound,right_bound,dFunc,derivativeApproximate)
     maxDerivativeErrorArray.append(maxDerivativeError)
-    derivativeThresholdAchieve = confirmDerivativeThreshold(maxError, eps, p, a)
+    derivativeThresholdAchieve = confirmDerivativeThreshold(maxDerivativeError, eps, p, a)
 
 
 """ PLOTTING """

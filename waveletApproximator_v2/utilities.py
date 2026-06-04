@@ -37,7 +37,6 @@ def errorEvaluation(J,p,left_bound, right_bound, func, fApproximate):
     # compute error array on domain
     errorArray = abs(fExact - fApproximate)
     maxError = max(errorArray)
-
     print(f'Maximum Absolute Error on Domain: {maxError}')
 
     return errorArray, maxError
@@ -56,12 +55,13 @@ def confirmSignalThreshold(maxError, eps):
 # compares the maximum absolute error for a derivative to the thresholding value
 # note that the guaranteed order of accuracy is different than previous function
 def confirmDerivativeThreshold(maxError, eps, p, a):
-    result = maxError < (eps**(1-a/p))*10
+
+    result = abs(maxError) < (eps**(1-a/p))*10
 
     if result == False:
-        print('Maximum error on domain has higher order of magnitude than epsilon^(1-a/p). Cannot guarantee accuracy of approximation.')
+        print('Maximum derivative error on domain has higher order of magnitude than epsilon^(1-a/p). Cannot guarantee accuracy of approximation.')
     else:
-        print('Maximum error on domain is on the order of magnitude of epsilon^(1-a/p). Accuracy guaranteed.')
+        print('Maximum derivative error on domain is on the order of magnitude of epsilon^(1-a/p). Accuracy guaranteed.')
 
 # ensures that proper basis is used for specified derivative computation
 def confirmContinuity(p,a) -> None:

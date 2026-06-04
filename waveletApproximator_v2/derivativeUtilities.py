@@ -93,6 +93,7 @@ def _chi_constructor(p,a,left_bound, right_bound, status_update=False):
         end_time = time.time()
         print('Eigenvalue problem solved.')
         print(f'Time to solve eigenvalue problem: {end_time-start_time:.3f}')
+    
     return np.array(chi).squeeze()
 
 # pp.13 in H2W makes no sense so I had to reference the Mathematica MRWT 
