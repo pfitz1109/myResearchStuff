@@ -15,7 +15,7 @@ from derivativeUtilities import _derivative_operator_concstructor
 
 """ USER INPUT PARAMETERS """
 # maximum resolution level
-J = 11
+J = 8
 
 # thresholding value
 epsilonArray = np.logspace(-1,-9,9)
