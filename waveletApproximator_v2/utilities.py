@@ -43,10 +43,57 @@ def errorEvaluation(J,p,left_bound, right_bound, func, fApproximate):
     return errorArray, maxError
 
 # compares the maximum absolute error to the thresholding value 
-def confirmThreshold(maxError, eps):
-    result = maxError < eps
+def confirmSignalThreshold(maxError, eps):
+    # should be on the same order of magnitude - does not need to be exactly
+    # the same 
+    result = maxError < eps*10
     if result == False:
         print('Maximum error on domain is greater than epsilon. Cannot guarantee accuracy of approximation.')
     else:
-        print('Maximum error on domain is less than epsilon. Accuracy guaranteed.')
+        print('Maximum error on domain is on the order of magnitude of epsilon. Accuracy guaranteed.')
     return result
+
+# compares the maximum absolute error for a derivative to the thresholding value
+# note that the guaranteed order of accuracy is different than previous function
+def confirmDerivativeThreshold(maxError, eps, p, a):
+    result = maxError < (eps**(1-a/p))*10
+
+    if result == False:
+        print('Maximum error on domain has higher order of magnitude than epsilon^(1-a/p). Cannot guarantee accuracy of approximation.')
+    else:
+        print('Maximum error on domain is on the order of magnitude of epsilon^(1-a/p). Accuracy guaranteed.')
+
+# ensures that proper basis is used for specified derivative computation
+def confirmContinuity(p,a) -> None:
+    if p == 4:
+        if a > 1:
+            raise ValueError('Insufficient basis order for chosen derivative. ' 
+                             'For p=4, up to first derivatives can be computed. ' 
+                             f'Received a={a}.')
+    if p == 6 :
+        if a > 2:
+            raise ValueError('Insufficient basis order for chosen derivative. '
+                             'For p=6, up to second derivatives can be computed. '
+                             f'Received a={a}.')
+    if p == 8 :
+        if a > 3:
+            raise ValueError('Insufficient basis order for chosen derivative. ' 
+                             'For p=8, up to third derivatives can be computed. ' 
+                             f'Received a={a}.')
+    if p == 10 :
+        if a > 4 :
+            raise ValueError('Insufficient basis order for chosen derivative. ' 
+                             'For p=10, up to fourth derivatives can be computed. ' 
+                             f'Received a={a}.')
+
+# lagrange boundary functions - necessary for _gamma_boundary function in 
+# transformUtilities.py
+def _lagrange_boundary_values(m: int,p: int,x: int) -> float:
+    value = 1
+    # // indicates integer division 
+    for n in range(1-p//2,p//2+1):
+        if n==m:
+            continue
+        value = value*(x-n)/(m-n)
+
+    return value

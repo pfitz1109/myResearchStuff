@@ -27,6 +27,9 @@
     func - input signal/function (what is to to be transformed)
     left_bound - left-boundary of x-domain
     right_bound - right-boundary of x-domain
+    status_updates - Boolean: if true, prints out status updates. set to true by
+    default just for this function. in main signal transformer file 
+    'denseWaveletApproximation', it is set to false
 
     OUTPUTS:
     F - forward wavelet transform matrix, dimensions: (2^(J)*p+1) X (2^(J)*p+1)
@@ -38,9 +41,10 @@ import time
 from utilities import _compute_filter_coefficients
 from transformUtilities import hTildeMatrixConstructor, gTildeMatrixConstructor
 
-def FWT(p,J,func,left_bound,right_bound) :
+def FWT(p,J,func,left_bound,right_bound,status_updates=True) :
     #print out, because i like to know the status of things 
-    print('Performing FWT...')
+    if status_updates:
+        print('Performing FWT...')
     # number of boundary conditions
     m = int((p-2)/2)
 
@@ -55,8 +59,9 @@ def FWT(p,J,func,left_bound,right_bound) :
     F = np.eye(2**(J)*p+1)
 
     # timing and printing display
-    start_time = time.time()
-    print('Constructing FWT matrix...')
+    if status_updates:
+        start_time = time.time()
+        print('Constructing FWT matrix...')
 
     # will have to iterate over every resolution level in order to generate F
     for j in range(1,J):
@@ -77,16 +82,15 @@ def FWT(p,J,func,left_bound,right_bound) :
 
         # update F 
         F = F @ levelF
-    end_time = time.time()
-    computationTime = end_time - start_time
-
-    print(f'Time to Construct FWT Operator: {computationTime:.3f}')
-
-
-    print('Computing coefficients...')
+    if status_updates:
+        end_time = time.time()
+        computationTime = end_time - start_time
+        print(f'Time to Construct FWT Operator: {computationTime:.3f}')
+        print('Computing coefficients...')
     # compute the d array 
     d = F @ evalF
 
-    print('FWT Complete.')
+    if status_updates:
+        print('FWT Complete.')
 
     return F, d

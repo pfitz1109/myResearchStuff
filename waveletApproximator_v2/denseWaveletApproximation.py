@@ -20,6 +20,8 @@
     4. func - input signal to be transformed/approximated.
     5. left_bound - left-boundary coordinate of domain.
     6. right_bound - right-boundary coordinate of domain.
+    7. status_update - Boolean that, when turned on, prints out status updates 
+    of each function. By default, set equal to 'False' so output is not crowded.
 
     Outputs:
     1. F - forward wavelet transform (FWT) matrix. Constructed up to resolution
@@ -44,7 +46,7 @@ from BWT import BWT
 from utilities import _validate_eps, _validate_p
 from transformUtilities import thresholdCoefficients
 
-def _dense_wavelet_approximation_function(p,eps,J,func,left_bound,right_bound):
+def _dense_wavelet_approximation_function(p,eps,J,func,left_bound,right_bound,status_update=False):
     print('\n')
     print(fr'### APPROXIMATING USING p={p}, J={J}, eps={eps} ###')
     """ PRELIMINARY TESTS """
@@ -56,7 +58,7 @@ def _dense_wavelet_approximation_function(p,eps,J,func,left_bound,right_bound):
         The way that i have written this, it will automatically create the matrix F
         but will also generate the vector of coefficients 'd'.
     """
-    F, d = FWT(p, J, func, left_bound, right_bound)
+    F, d = FWT(p, J, func, left_bound, right_bound,status_update)
 
     """ THRESHOLD THE WAVELET COEFFICIENTS """
     """
@@ -68,7 +70,7 @@ def _dense_wavelet_approximation_function(p,eps,J,func,left_bound,right_bound):
         The completeCoefficientArray is what we will use to perform the BWT. 
     """
 
-    s0, coefficientThresholdArray, completeCoefficientArray = thresholdCoefficients(p, d, eps)
+    s0, coefficientThresholdArray, completeCoefficientArray = thresholdCoefficients(p, d, eps, status_update)
 
     """ BACKWARD WAVELET TRANSFORMATION """
     """
@@ -77,5 +79,5 @@ def _dense_wavelet_approximation_function(p,eps,J,func,left_bound,right_bound):
         Returns the 'B' matrix as well as the approximated function on the finest
         grid resolution.
     """
-    B, fApproximate = BWT(p, J, completeCoefficientArray)
+    B, fApproximate = BWT(p, J, completeCoefficientArray, status_update)
     return F, B, s0, coefficientThresholdArray, completeCoefficientArray, fApproximate

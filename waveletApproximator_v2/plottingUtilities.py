@@ -5,7 +5,7 @@
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt # pyright: ignore[reportMissingModuleSource]
 
 # plot the dense wavelet approximation against high-resolution analytical 
 # function 
