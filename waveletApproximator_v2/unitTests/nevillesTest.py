@@ -1,8 +1,13 @@
+""" NEVILLE'S THEOREM UNIT TEST """
+
+"""
+    Unit test that confirms the proper construction of the filter coefficient
+    matrix using Neville's Theorem.
+"""
+
 import unittest
 import numpy as np
 from utilities import _compute_filter_coefficients
-from transformUtilities import gTildeMatrixConstructor, gMatrixConstructor, hTildeMatrixConstructor, hMatrixConstructor
-from FWT import FWT
 
 class TestNevillesTheorem(unittest.TestCase):
     def test_coefficients(self):

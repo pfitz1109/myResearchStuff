@@ -123,9 +123,10 @@ def hMatrixConstructor(p,j,filterCoefficients):
 
 
 # apply thresholding parameter to d-coefficients
-def thresholdCoefficients(p, d, eps):
+def thresholdCoefficients(p, d, eps, status_updates=False):
     # status update
-    print('Thresholding coefficients...')
+    if status_updates:
+        print('Thresholding coefficients...')
 
     # create a copy of d
     dThreshold = np.copy(d)
@@ -140,7 +141,8 @@ def thresholdCoefficients(p, d, eps):
     # add the s0 coefficients back
     dComplete = np.concatenate((s0,coefficientThreshold))
 
-    print('Thresholding Complete.')
+    if status_updates:
+        print('Thresholding Complete.')
     # return the s0 coefficients, the thresholded d-coefficients, and the 
     # s0+thresholded coefficients (to be used in the backward transform)
     return s0, coefficientThreshold, dComplete

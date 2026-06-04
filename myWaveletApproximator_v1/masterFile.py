@@ -37,8 +37,8 @@ right_bound = 10
 """   
     For each interpolation basis 'p' in above array:
         Run the denseFunctionalWaveletCoefficient function for each of the given epsilon values
-
 """
+
 for p in basis:
 
     maxError = []
