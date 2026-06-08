@@ -14,7 +14,7 @@
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt # type: ignore
 import subprocess
 from waveletApproximator_v2.utilities import _validate_p, _validate_eps, _compute_filter_coefficients # type: ignore
 

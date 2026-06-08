@@ -19,7 +19,7 @@
 
 """ LIBRARY INSTALLATION """
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt # type: ignore
 from plottingUtilities import waveletApproximationPlotting, waveletApproximationErrorPlotting
 from denseFunctionalWaveletCoefficient import denseFunctionalWaveletCoefficient
 

@@ -2,7 +2,7 @@
 """ Specific plotting functions for the wavelet approximation toolkit """
 
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt # type: ignore
 
 # tool for plotting the sparse wavelet approximation against the analytical solution 
 

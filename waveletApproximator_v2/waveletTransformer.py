@@ -11,11 +11,11 @@ import numpy as np
 from denseWaveletApproximation import _dense_wavelet_approximation_function
 from utilities import errorEvaluation, confirmSignalThreshold, confirmDerivativeThreshold
 from plottingUtilities import approximationPlot, errorDomainPlot, errorConvergencePlot
-from derivativeUtilities import _derivative_operator_concstructor
+from derivativeUtilities import _derivative_operator_constructor
 
 """ USER INPUT PARAMETERS """
 # maximum resolution level
-J = 8
+J = 10
 
 # thresholding value
 epsilonArray = np.logspace(-1,-9,9)
@@ -28,15 +28,15 @@ a = 2
 
 # signal to be approximated
 def func(X):
-    return np.sin(X)
+    return np.exp(-4*X**2)
 
 # if known - signal's 'a'-th derivative (using first derivative for simplicity)
 def dFunc(X):
-    return -np.sin(X)
+    return -8*np.exp(-4*X**2) + 64*np.exp(-4*X**2)*X**2
 
 # bounds
-left_bound = 0
-right_bound = 2*np.pi
+left_bound = -5
+right_bound = 5
 
 # status_update - if set to true, will print out status updates
 status_update = False
@@ -46,17 +46,16 @@ maxErrorArray = []; maxDerivativeErrorArray=[]
 for eps in epsilonArray:
 
     """ TRANSFORM SIGNAL """
-    F, B, s0, coefficientThresholdArray, completeCoefficientArray, fApproximate = _dense_wavelet_approximation_function(p, eps, J, func, left_bound, right_bound)
+    F, B, s0, d, coefficientThresholdArray, completeCoefficientArray, fApproximate = _dense_wavelet_approximation_function(p, eps, J, func, left_bound, right_bound)
 
     """ GENERATE DERIVATIVE OPERATORS """
     # entry needs to be J-1, I messed up somewhere in my construction that the
     # J used in the FWT and BWT must be one value greater than the entry used
     # in the construction of the Gamma operator
-    gammaJ = J-1
-    derivativeOperator = _derivative_operator_concstructor(p,a,left_bound,right_bound,gammaJ,F,B,status_update)
+    derivativeOperator = _derivative_operator_constructor(p,a,left_bound,right_bound,J-1,F,B,status_update)
 
     """ APPROXIMATE DERIVATIVE """
-    derivativeCoefficients = derivativeOperator @ completeCoefficientArray
+    derivativeCoefficients = derivativeOperator @ completeCoefficientArray 
     derivativeApproximate = B @ derivativeCoefficients
 
     """ ERROR OF SIGNAL APPROXIMATION """
