@@ -19,7 +19,7 @@ Functiona Goals:
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt # type: ignore
 from utilities import _validate_p, _validate_eps, _compute_filter_coefficients, wavelet_coefficient_generator # type: ignore
 from plottingUtilities import waveletResolutionLevelsPlotting
 

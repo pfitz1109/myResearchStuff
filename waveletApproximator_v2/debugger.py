@@ -10,7 +10,7 @@ from transformUtilities import hTildeMatrixConstructor, gTildeMatrixConstructor,
 from FWT import FWT
 from BWT import BWT
 from denseWaveletApproximation import _dense_wavelet_approximation_function
-from derivativeUtilities import _gamma_constructor, _derivative_operator_concstructor
+from derivativeUtilities import _gamma_constructor, _derivative_operator_constructor
 from plottingUtilities import approximationPlot, errorDomainPlot
 
 np.set_printoptions(threshold=np.inf, linewidth=2000)
@@ -18,7 +18,7 @@ np.set_printoptions(threshold=np.inf, linewidth=2000)
 left_bound = 0
 right_bound = 2*np.pi
 p = 6
-fwtJ = 8
+fwtJ = 9
 gammaJ = fwtJ - 1 
 eps = 0.001
 a = 2
@@ -38,17 +38,14 @@ F, d = FWT(p,fwtJ,func,left_bound,right_bound,status_updates)
 s0, coefficientThreshold, dComplete = thresholdCoefficients(p,d,eps,status_updates)
 B, fApproximate = BWT(p,fwtJ,dComplete,status_updates)
 
-Gamma = _gamma_constructor(p,a,left_bound,right_bound,gammaJ,status_updates)
+pythonDerivative = _derivative_operator_constructor(p,a,left_bound,right_bound,gammaJ,F,B,)
 
-derivativeOperator = _derivative_operator_concstructor(F,B,Gamma,status_updates)
+mathematicaDerivative = np.loadtxt("mathematica_derivative_operator.csv", delimiter=",")
 
-firstDerivativeCoefficients = derivativeOperator @ dComplete
-firstDerivativeApproxiamtes = B @ firstDerivativeCoefficients
+is_identical = np.allclose(pythonDerivative, mathematicaDerivative, atol = 1e-8)
 
-approximationPlot(p,fwtJ,eps,func,left_bound,right_bound,fApproximate)
-approximationPlot(p,fwtJ,eps,derivative,left_bound,right_bound,firstDerivativeApproxiamtes)
-
-firstDerivativeErrorArray, maxFirstDerivativeError = errorEvaluation(fwtJ,p,left_bound,right_bound,derivative,firstDerivativeApproxiamtes)
-thresholdAchieved = confirmDerivativeThreshold(maxFirstDerivativeError,eps,p,a)
-
-errorDomainPlot(p,fwtJ,eps,left_bound,right_bound,firstDerivativeErrorArray)
+if is_identical:
+    print('Matrices are the same.')
+else:
+    maxError = np.max(abs(pythonDerivative - mathematicaDerivative))
+    print(f'Matrices not the same. Largest error: {maxError}')

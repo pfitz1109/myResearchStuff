@@ -87,12 +87,13 @@ def _chi_constructor(p,a,left_bound, right_bound, status_update=False):
     # p=10 - anything larger than this, we consider significant
     # run the condition a=4, p=10 and you'll see that entries that should be 
     # zero are written as like 3 e-12
-    chi[abs(chi) < 1e-10] = 0
+    # chi[abs(chi) < 1e-10] = 0
 
     if status_update:
         end_time = time.time()
         print('Eigenvalue problem solved.')
         print(f'Time to solve eigenvalue problem: {end_time-start_time:.3f}')
+    
     return np.array(chi).squeeze()
 
 # pp.13 in H2W makes no sense so I had to reference the Mathematica MRWT 
@@ -128,7 +129,7 @@ def _gamma_weight_constructor(p,a,left_bound,right_bound,status_update=False):
     # first compute the eigenvector chi, this will be necessary
     chi = _chi_constructor(p,a,left_bound,right_bound,status_update)
 
-    # next build an empty matrix that we will store the weights 
+    # next build an empty matrix where we will store the weights 
     gammaCoefficients = np.zeros((p+1,2*p+1))
 
     # will assign the last row equal to chi
@@ -187,7 +188,7 @@ def _gamma_constructor(p,a,left_bound,right_bound,J,status_update=False):
 
 # construct the derivative operator matrix D
 # note that F and B should be built to highest resolution size
-def _derivative_operator_concstructor(p,a,left_bound,right_bound,J,F,B,status_update=False):
+def _derivative_operator_constructor(p,a,left_bound,right_bound,J,F,B,status_update=False):
 
     if status_update:
         print('Constructing derivative operator...')

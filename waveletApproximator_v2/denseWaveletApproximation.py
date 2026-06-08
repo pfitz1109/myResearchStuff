@@ -39,7 +39,7 @@
 """
 
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt # type: ignore
 
 from FWT import FWT
 from BWT import BWT
@@ -80,4 +80,4 @@ def _dense_wavelet_approximation_function(p,eps,J,func,left_bound,right_bound,st
         grid resolution.
     """
     B, fApproximate = BWT(p, J, completeCoefficientArray, status_update)
-    return F, B, s0, coefficientThresholdArray, completeCoefficientArray, fApproximate
+    return F, B, s0, d, coefficientThresholdArray, completeCoefficientArray, fApproximate
