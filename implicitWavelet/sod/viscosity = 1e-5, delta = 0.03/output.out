@@ -1,0 +1,238 @@
+1D Sod Shock Tube
+MRWT will deduced N = 2 from input domain
+####################
+# INPUT PARAMETERS #
+####################
+px = 6
+pt = 6
+J = 7
+x : [0, 1]
+y : [0, 0.2]
+z : [0, 0]
+n_dims : 2
+T : [0, 0]
+
+Will write output file(s) in directory: output/ every 1 time step(s)
+
+
+Constructing derivative operators ... 
+thetas = [1, -0.00410958904109589, 0.771428571428577, -0.02054794520547945]
+6th order basis in time. 6th order basis in space.
+Wavelet Initial Guess
+Solved using modified Newton-Raphson Method
+Newton Raphson stops after 20 iterations. Or after reaching 1e-08 correction 
+iterative tolerance: 1e-06
+Reading the domain ... 
+xMin: 0 
+ xMax: 1 
+ tMin: 0 
+ tMax: 0.2
+Initializing gamma operators ... 
+Initializing fwt operators ... 
+Initializing bwt operators ... 
+Generating Boundary Conditions ... 
+Current Value of r: 5
+
+ ***************************** j = 4 ***************************** 
+
+Solving with δ = 0.05
+ 
+Using MUMPS Solver
+
+unknowns: 110016. knowns: 1731
+ 
+Building sparsity pattern sequentially
+Time to construct tangent: 0 hours 1 minutes 42.4 seconds 
+Storing Triplets ... 
+Storing Triplets for all 1 Ranks ...
+Solving initial system ... 
+Time to solve ∆s: 13.1787
+ 
+r0: 531.077
+Solving ∆∆s ... 
+residual: 5.31043
+norm(∆∆s): 92.2249
+ 
+Solving ∆∆s ... 
+residual: 104.346
+Globally convergent weight: 0.17, yields new residual: 4.80057
+norm(∆∆s): 781.523
+ 
+Solving ∆∆s ... 
+residual: 1654.75
+Globally convergent weight: 0.07, yields new residual: 4.55538
+norm(∆∆s): 1263.29
+ 
+
+ Updating tangent after globally convergent loop ... 
+ 
+Solving ∆∆s ... 
+residual: 3.16607
+norm(∆∆s): 122.535
+ 
+Solving ∆∆s ... 
+residual: 60.6484
+Globally convergent weight: 0.15, yields new residual: 3.03882
+norm(∆∆s): 246.973
+ 
+Solving ∆∆s ... 
+residual: 225.211
+Globally convergent weight: 0.04, yields new residual: 2.99287
+norm(∆∆s): 242.849
+ 
+
+ Updating tangent after globally convergent loop ... 
+ 
+Solving ∆∆s ... 
+residual: 1.54101
+norm(∆∆s): 44.2214
+ 
+Solving ∆∆s ... 
+residual: 6.13551
+Globally convergent weight: 0.32, yields new residual: 1.52851
+norm(∆∆s): 31.9616
+ 
+Solving ∆∆s ... 
+residual: 4.74994
+Globally convergent weight: 0.31, yields new residual: 1.51909
+norm(∆∆s): 25.9866
+ 
+
+ Updating tangent after globally convergent loop ... 
+ 
+Solving ∆∆s ... 
+residual: 0.523767
+norm(∆∆s): 16.7862
+ 
+Solving ∆∆s ... 
+residual: 0.335547
+norm(∆∆s): 4.30936
+ 
+Solving ∆∆s ... 
+residual: 0.32994
+norm(∆∆s): 2.98346
+ 
+
+ Updating tangent after globally convergent loop ... 
+ 
+Solving ∆∆s ... 
+residual: 0.0351003
+norm(∆∆s): 1.48769
+ 
+Solving ∆∆s ... 
+residual: 0.00646087
+norm(∆∆s): 0.178719
+ 
+Solving ∆∆s ... 
+residual: 0.000876986
+norm(∆∆s): 0.0361745
+ 
+
+ Updating tangent after globally convergent loop ... 
+ 
+Solving ∆∆s ... 
+residual: 3.24557e-07
+norm(∆∆s): 0.00668215
+ 
+Solving ∆∆s ... 
+residual: 3.09861e-10
+norm(∆∆s): 7.80068e-06
+ 
+# Newton iterations completed: 17
+total solve time start to finish: 362.308
+Total time spent solving system: 232.764s. (64.2448% of total time) 
+Total time spent building and updating tangent: 102.4s. (28.2632% of total time) 
+Total number of seconds to solve: 362.314
+Time: 0 hours 6 minutes 2.31439 seconds 
+Current Value of r: 6
+
+ ***************************** j = 5 ***************************** 
+using synthesized guess
+
+Solving with δ = 0.03
+ 
+Using MUMPS Solver
+
+unknowns: 441216. knowns: 3459
+ 
+Building sparsity pattern sequentially
+Time to construct tangent: 0 hours 26 minutes 18.9217 seconds 
+Storing Triplets ... 
+Storing Triplets for all 1 Ranks ...
+Solving initial system ... 
+Time to solve ∆s: 131.838
+ 
+r0: 148.674
+Solving ∆∆s ... 
+residual: 1.36939
+norm(∆∆s): 3.18032
+ 
+Solving ∆∆s ... 
+residual: 1.06645
+norm(∆∆s): 11.1912
+ 
+Solving ∆∆s ... 
+residual: 0.987658
+norm(∆∆s): 8.60092
+ 
+
+ Updating tangent after globally convergent loop ... 
+ 
+Solving ∆∆s ... 
+residual: 1.09844
+Globally convergent weight: 0.94, yields new residual: 0.97487
+norm(∆∆s): 11.0869
+ 
+Solving ∆∆s ... 
+residual: 0.900774
+norm(∆∆s): 4.76901
+ 
+Solving ∆∆s ... 
+residual: 0.618654
+norm(∆∆s): 2.72446
+ 
+
+ Updating tangent after globally convergent loop ... 
+ 
+Solving ∆∆s ... 
+residual: 0.179935
+norm(∆∆s): 3.2936
+ 
+Solving ∆∆s ... 
+residual: 0.0657438
+norm(∆∆s): 0.64895
+ 
+Solving ∆∆s ... 
+residual: 0.0150472
+norm(∆∆s): 0.12458
+ 
+
+ Updating tangent after globally convergent loop ... 
+ 
+Solving ∆∆s ... 
+residual: 3.34806e-05
+norm(∆∆s): 0.0203163
+ 
+Solving ∆∆s ... 
+residual: 1.62565e-07
+norm(∆∆s): 7.55522e-05
+ 
+Solving ∆∆s ... 
+residual: 5.10514e-10
+norm(∆∆s): 1.9611e-07
+ 
+
+ Updating tangent after globally convergent loop ... 
+ 
+# Newton iterations completed: 12
+total solve time start to finish: 3400.67
+Total time spent solving system: 1725.7s. (50.746% of total time) 
+Total time spent building and updating tangent: 1578.92s. (46.4298% of total time) 
+Total number of seconds to solve: 3400.68
+Time: 0 hours 56 minutes 40.6827 seconds 
+rho error: 0.0107135
+v error: 0.0428144
+e error: 0.0359536
+solutions written
+Solutions written to:   Density: rhoSol.csv.   Velocity: vSol.csv.   Energy: eSol.csv. 
+evaluated 0 lua calls
