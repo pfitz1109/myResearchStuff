@@ -1,0 +1,642 @@
+
+rank:0 affinity:1111111111111111111111111111111111111111111111111111111111111111 nthreads:1
+SPARSE MODIFIED BURGERS'
+####################
+# INPUT PARAMETERS #
+####################
+px = 6
+pt = 6
+J = 4
+x : [-1, 1]
+y : [0, 0.5]
+z : [0, 0]
+n_dims : 2
+T : [0, 0]
+
+Will write output file(s) in directory: output/ every 1 time step(s)
+
+
+Constructing geometry container ... 
+Constructing derivative operators ... 
+thetas = [1, -0.002054794520547945, 0.19285714285714425, -0.00821917808219178]
+6th order basis in time. 6th order basis in space.
+Wavelet Initial Guess
+viscosity parameter ν = 0.05
+Reading the domain ... 
+xMin: -1 
+ xMax: 1 
+ tMin: 0 
+ tMax: 0.5
+jMin = 2. jMax = 4.
+Reading function to discretize ... 
+Constructing integrator ... 
+Constructing discretization operator ... 
+Maximum resolution level to be used: 4
+
+Setting jMax for this loop to 1. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.01]
+Discretizing ...
+[/users/pfitzge4/MRWT/mrwt/include/mrwt/Discretizer.hpp:270] WARNING discretizer: field discretization overflowed j=4
+after discretization ε = [0.01]
+field is resolved up to level 3
+Max coefficient: [0.2707031249998941, 0, 0, 0]
+jMRWT = 3. jMax = 1.
+ 
+Beginning outer loop #1
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 97 x 97 with 6699 nonzeros 
+J = 3
+Solving using 1 process(es).
+# thresholded points = 2710
+unknowns: 6411. knowns: 2998
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.430084
+ 
+Populating tangent ...
+Time to populate tangent: 0.0273252
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 7.562062e+03
+Initial L2 norm of residual: 7.562062e+03
+false convergence 2, L2 norm of residual: 5.272638e-01
+Final L2 norm of residual: 7.547235e-03
+
+
+Iterations = 542
+Final Relative Residual Norm = 9.980393e-07
+
+Time to solve ∆s: 1.33314
+ 
+r0: 1517.6
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.517601e+03
+Initial L2 norm of residual: 1.517601e+03
+false convergence 2, L2 norm of residual: 8.946622e-02
+Final L2 norm of residual: 1.515630e-03
+
+
+Iterations = 589
+Final Relative Residual Norm = 9.987011e-07
+
+residual: 1.08708
+norm(∆∆s): 48.4737
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649756e+03
+Initial L2 norm of residual: 1.649756e+03
+false convergence 2, L2 norm of residual: 1.407028e+02
+false convergence 2, L2 norm of residual: 1.298385e+01
+false convergence 2, L2 norm of residual: 1.654700e-03
+Final L2 norm of residual: 1.644126e-03
+
+
+Iterations = 975
+Final Relative Residual Norm = 9.965878e-07
+
+residual: 1.18112
+Globally-convergent weight: -0.001, yields new residual: 1.08699
+norm(∆∆s): 142.911
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649616e+03
+Initial L2 norm of residual: 1.649616e+03
+false convergence 2, L2 norm of residual: 3.711482e-01
+Final L2 norm of residual: 1.619576e-03
+
+
+Iterations = 569
+Final Relative Residual Norm = 9.817898e-07
+
+residual: 1.18117
+Globally-convergent weight: -0.001, yields new residual: 1.0869
+norm(∆∆s): 143.021
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649476e+03
+Initial L2 norm of residual: 1.649476e+03
+false convergence 2, L2 norm of residual: 1.039185e+01
+Final L2 norm of residual: 1.628839e-03
+
+
+Iterations = 577
+Final Relative Residual Norm = 9.874882e-07
+
+residual: 1.18121
+Globally-convergent weight: -0.001, yields new residual: 1.08681
+norm(∆∆s): 143.13
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649337e+03
+Initial L2 norm of residual: 1.649337e+03
+false convergence 2, L2 norm of residual: 2.676015e-01
+Final L2 norm of residual: 1.648977e-03
+
+
+Iterations = 447
+Final Relative Residual Norm = 9.997820e-07
+
+residual: 1.18126
+Globally-convergent weight: -0.001, yields new residual: 1.08671
+norm(∆∆s): 143.239
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649197e+03
+Initial L2 norm of residual: 1.649197e+03
+false convergence 2, L2 norm of residual: 1.462132e-01
+Final L2 norm of residual: 1.644123e-03
+
+
+Iterations = 486
+Final Relative Residual Norm = 9.969236e-07
+
+residual: 1.1813
+Globally-convergent weight: -0.001, yields new residual: 1.08662
+norm(∆∆s): 143.347
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649057e+03
+Initial L2 norm of residual: 1.649057e+03
+false convergence 2, L2 norm of residual: 1.203798e+02
+false convergence 2, L2 norm of residual: 1.765370e-03
+Final L2 norm of residual: 1.574434e-03
+
+
+Iterations = 666
+Final Relative Residual Norm = 9.547486e-07
+
+residual: 1.18135
+Globally-convergent weight: -0.001, yields new residual: 1.08653
+norm(∆∆s): 143.456
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.648916e+03
+Initial L2 norm of residual: 1.648916e+03
+false convergence 2, L2 norm of residual: 8.597056e-01
+Final L2 norm of residual: 1.641656e-03
+
+
+Iterations = 515
+Final Relative Residual Norm = 9.955967e-07
+
+residual: 1.18139
+Globally-convergent weight: -0.001, yields new residual: 1.08644
+norm(∆∆s): 143.562
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.648776e+03
+Initial L2 norm of residual: 1.648776e+03
+false convergence 2, L2 norm of residual: 1.904248e+00
+Final L2 norm of residual: 1.644625e-03
+
+
+Iterations = 635
+Final Relative Residual Norm = 9.974828e-07
+
+residual: 1.18144
+Globally-convergent weight: -0.001, yields new residual: 1.08634
+norm(∆∆s): 143.667
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.648635e+03
+Initial L2 norm of residual: 1.648635e+03
+false convergence 2, L2 norm of residual: 5.375141e+00
+Final L2 norm of residual: 1.377846e-03
+
+
+Iterations = 602
+Final Relative Residual Norm = 8.357495e-07
+
+residual: 1.18149
+Globally-convergent weight: -0.001, yields new residual: 1.08625
+norm(∆∆s): 143.773
+ 
+# Newton iterations completed: 10
+J = 3 loop finished. 
+Determined jMax: 2
+
+Setting jMax for this loop to 2. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.01]
+Discretizing ...
+after discretization ε = [0.01]
+field is resolved up to level 3
+Max coefficient: [0.2707031249998979, 29.669062499983422, 2338.874999998221, 63.29416952052643]
+jMRWT = 3. jMax = 2.
+ 
+Beginning outer loop #1
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 97 x 97 with 6699 nonzeros 
+J = 3
+Solving using 1 process(es).
+# thresholded points = 2710
+unknowns: 6411. knowns: 2998
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.422896
+ 
+Populating tangent ...
+Time to populate tangent: 0.0246809
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 7.562062e+03
+Initial L2 norm of residual: 7.562062e+03
+false convergence 2, L2 norm of residual: 3.366451e-01
+Final L2 norm of residual: 7.440702e-03
+
+
+Iterations = 540
+Final Relative Residual Norm = 9.839514e-07
+
+Time to solve ∆s: 1.30767
+ 
+r0: 1517.6
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.517600e+03
+Initial L2 norm of residual: 1.517600e+03
+false convergence 2, L2 norm of residual: 1.335640e-01
+Final L2 norm of residual: 1.436578e-03
+
+
+Iterations = 613
+Final Relative Residual Norm = 9.466114e-07
+
+residual: 1.08708
+norm(∆∆s): 48.4737
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649755e+03
+Initial L2 norm of residual: 1.649755e+03
+false convergence 2, L2 norm of residual: 1.063903e+01
+false convergence 2, L2 norm of residual: 4.200555e-02
+Final L2 norm of residual: 1.649005e-03
+
+
+Iterations = 739
+Final Relative Residual Norm = 9.995455e-07
+
+residual: 1.18112
+Globally-convergent weight: -0.001, yields new residual: 1.08699
+norm(∆∆s): 142.911
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649615e+03
+Initial L2 norm of residual: 1.649615e+03
+false convergence 2, L2 norm of residual: 1.031466e+03
+false convergence 2, L2 norm of residual: 2.907947e-02
+Final L2 norm of residual: 1.563335e-03
+
+
+Iterations = 827
+Final Relative Residual Norm = 9.476964e-07
+
+residual: 1.18117
+Globally-convergent weight: -0.001, yields new residual: 1.0869
+norm(∆∆s): 143.021
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649476e+03
+Initial L2 norm of residual: 1.649476e+03
+false convergence 2, L2 norm of residual: 3.131275e+00
+Final L2 norm of residual: 1.439673e-03
+
+
+Iterations = 584
+Final Relative Residual Norm = 8.728061e-07
+
+residual: 1.18121
+Globally-convergent weight: -0.001, yields new residual: 1.08681
+norm(∆∆s): 143.129
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649336e+03
+Initial L2 norm of residual: 1.649336e+03
+false convergence 2, L2 norm of residual: 5.515212e-02
+Final L2 norm of residual: 1.642222e-03
+
+
+Iterations = 393
+Final Relative Residual Norm = 9.956868e-07
+
+residual: 1.18126
+Globally-convergent weight: -0.001, yields new residual: 1.08671
+norm(∆∆s): 143.238
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649196e+03
+Initial L2 norm of residual: 1.649196e+03
+false convergence 2, L2 norm of residual: 3.014667e+00
+Final L2 norm of residual: 1.628185e-03
+
+
+Iterations = 571
+Final Relative Residual Norm = 9.872599e-07
+
+residual: 1.1813
+Globally-convergent weight: -0.001, yields new residual: 1.08662
+norm(∆∆s): 143.345
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649056e+03
+Initial L2 norm of residual: 1.649056e+03
+false convergence 2, L2 norm of residual: 1.634658e-01
+Final L2 norm of residual: 1.643878e-03
+
+
+Iterations = 518
+Final Relative Residual Norm = 9.968598e-07
+
+residual: 1.18135
+Globally-convergent weight: -0.001, yields new residual: 1.08653
+norm(∆∆s): 143.453
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.648916e+03
+Initial L2 norm of residual: 1.648916e+03
+false convergence 2, L2 norm of residual: 1.656952e+00
+Final L2 norm of residual: 1.193003e-03
+
+
+Iterations = 609
+Final Relative Residual Norm = 7.235076e-07
+
+residual: 1.18139
+Globally-convergent weight: -0.001, yields new residual: 1.08644
+norm(∆∆s): 143.56
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.648775e+03
+Initial L2 norm of residual: 1.648775e+03
+false convergence 2, L2 norm of residual: 1.185514e-01
+Final L2 norm of residual: 1.589887e-03
+
+
+Iterations = 549
+Final Relative Residual Norm = 9.642837e-07
+
+residual: 1.18144
+Globally-convergent weight: -0.001, yields new residual: 1.08634
+norm(∆∆s): 143.667
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.648634e+03
+Initial L2 norm of residual: 1.648634e+03
+false convergence 2, L2 norm of residual: 2.650749e+00
+Final L2 norm of residual: 1.527411e-03
+
+
+Iterations = 604
+Final Relative Residual Norm = 9.264704e-07
+
+residual: 1.18149
+Globally-convergent weight: -0.001, yields new residual: 1.08625
+norm(∆∆s): 143.773
+ 
+# Newton iterations completed: 10
+J = 3 loop finished. 
+Determined jMax: 3
+
+Setting jMax for this loop to 3. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.01]
+Discretizing ...
+after discretization ε = [0.01]
+field is resolved up to level 3
+Max coefficient: [0.27070312499990146, 29.669062499973663, 2338.874999997142, 63.294169520529664]
+jMRWT = 3. jMax = 3.
+ 
+Beginning outer loop #1
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 97 x 97 with 6699 nonzeros 
+J = 3
+Solving using 1 process(es).
+# thresholded points = 2710
+unknowns: 6411. knowns: 2998
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.427443
+ 
+Populating tangent ...
+Time to populate tangent: 0.0264632
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 7.562062e+03
+Initial L2 norm of residual: 7.562062e+03
+false convergence 2, L2 norm of residual: 4.503795e-01
+Final L2 norm of residual: 7.420125e-03
+
+
+Iterations = 563
+Final Relative Residual Norm = 9.812304e-07
+
+Time to solve ∆s: 1.36157
+ 
+r0: 1517.6
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.517600e+03
+Initial L2 norm of residual: 1.517600e+03
+false convergence 2, L2 norm of residual: 1.135793e-01
+Final L2 norm of residual: 1.481172e-03
+
+
+Iterations = 587
+Final Relative Residual Norm = 9.759960e-07
+
+residual: 1.08708
+norm(∆∆s): 48.4737
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649754e+03
+Initial L2 norm of residual: 1.649754e+03
+false convergence 2, L2 norm of residual: 1.609204e+02
+false convergence 2, L2 norm of residual: 2.144712e-03
+Final L2 norm of residual: 9.073617e-04
+
+
+Iterations = 712
+Final Relative Residual Norm = 5.499980e-07
+
+residual: 1.18112
+Globally-convergent weight: -0.001, yields new residual: 1.08699
+norm(∆∆s): 142.911
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649615e+03
+Initial L2 norm of residual: 1.649615e+03
+false convergence 2, L2 norm of residual: 2.294002e-01
+Final L2 norm of residual: 1.572894e-03
+
+
+Iterations = 543
+Final Relative Residual Norm = 9.534916e-07
+
+residual: 1.18117
+Globally-convergent weight: -0.001, yields new residual: 1.0869
+norm(∆∆s): 143.02
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649475e+03
+Initial L2 norm of residual: 1.649475e+03
+false convergence 2, L2 norm of residual: 1.244445e+00
+Final L2 norm of residual: 1.566525e-03
+
+
+Iterations = 567
+Final Relative Residual Norm = 9.497108e-07
+
+residual: 1.18121
+Globally-convergent weight: -0.001, yields new residual: 1.08681
+norm(∆∆s): 143.131
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649336e+03
+Initial L2 norm of residual: 1.649336e+03
+false convergence 2, L2 norm of residual: 1.479550e+00
+Final L2 norm of residual: 1.354016e-03
+
+
+Iterations = 556
+Final Relative Residual Norm = 8.209464e-07
+
+residual: 1.18126
+Globally-convergent weight: -0.001, yields new residual: 1.08671
+norm(∆∆s): 143.239
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649196e+03
+Initial L2 norm of residual: 1.649196e+03
+false convergence 2, L2 norm of residual: 6.126465e-01
+Final L2 norm of residual: 1.645800e-03
+
+
+Iterations = 485
+Final Relative Residual Norm = 9.979413e-07
+
+residual: 1.1813
+Globally-convergent weight: -0.001, yields new residual: 1.08662
+norm(∆∆s): 143.347
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.649055e+03
+Initial L2 norm of residual: 1.649055e+03
+false convergence 2, L2 norm of residual: 2.902720e+00
+Final L2 norm of residual: 1.647236e-03
+
+
+Iterations = 624
+Final Relative Residual Norm = 9.988965e-07
+
+residual: 1.18135
+Globally-convergent weight: -0.001, yields new residual: 1.08653
+norm(∆∆s): 143.453
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.648915e+03
+Initial L2 norm of residual: 1.648915e+03
+false convergence 2, L2 norm of residual: 4.974140e+02
+false convergence 2, L2 norm of residual: 1.964147e+01
+false convergence 2, L2 norm of residual: 2.656812e-01
+false convergence 2, L2 norm of residual: 1.661538e-03
+Final L2 norm of residual: 1.646952e-03
+
+
+Iterations = 1131
+Final Relative Residual Norm = 9.988095e-07
+
+residual: 1.18139
+Globally-convergent weight: -0.001, yields new residual: 1.08644
+norm(∆∆s): 143.56
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.648775e+03
+Initial L2 norm of residual: 1.648775e+03
+Final L2 norm of residual: 1.430058e+05
+
+
+Iterations = 374
+Final Relative Residual Norm = 8.673459e+01
+
+residual: 1.1809
+Globally-convergent weight: -0.001, yields new residual: 1.08634
+norm(∆∆s): 601.544
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.648635e+03
+Initial L2 norm of residual: 1.648635e+03
+false convergence 2, L2 norm of residual: 1.110631e+01
+Final L2 norm of residual: 1.408305e-03
+
+
+Iterations = 599
+Final Relative Residual Norm = 8.542249e-07
+
+residual: 1.18149
+Globally-convergent weight: -0.001, yields new residual: 1.08625
+norm(∆∆s): 143.785
+ 
+# Newton iterations completed: 10
+J = 3 loop finished. 
+Determined jMax: 4
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     578     600     550     
+3       2353    1436    1575    1336    
+4       6700    0       0       0       
+
+attempting to output the dense geometry...
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     578     600     550     
+3       2401    1436    1575    1336    
+4       9409    0       0       0       
+
+rebuilding sparse state after creating dense VTK files...

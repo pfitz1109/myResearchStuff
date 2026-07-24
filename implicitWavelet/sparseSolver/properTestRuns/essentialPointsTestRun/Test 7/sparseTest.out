@@ -1,0 +1,3070 @@
+
+rank:0 affinity:1111111111111111111111111111111111111111111111111111111111111111 nthreads:1
+SPARSE MODIFIED BURGERS'
+####################
+# INPUT PARAMETERS #
+####################
+px = 6
+pt = 6
+J = 5
+x : [-1, 1]
+y : [0, 0.5]
+z : [0, 0]
+n_dims : 2
+T : [0, 0]
+
+Will write output file(s) in directory: output/ every 1 time step(s)
+
+
+Constructing geometry container ... 
+Constructing derivative operators ... 
+thetas = [1, -0.002054794520547945, 0.19285714285714425, -0.00821917808219178]
+6th order basis in time. 6th order basis in space.
+Wavelet Initial Guess
+viscosity parameter ν = 0.1
+Reading the domain ... 
+xMin: -1 
+ xMax: 1 
+ tMin: 0 
+ tMax: 0.5
+jMin = 2. jMax = 5.
+Reading function to discretize ... 
+Constructing integrator ... 
+Constructing discretization operator ... 
+Maximum resolution level to be used: 5
+
+Setting jMax for this loop to 1. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.01]
+Discretizing ...
+after discretization ε = [0.01]
+field is resolved up to level 2
+Max coefficient: [1.202467906948057e-06, 0, 0, 0]
+jMRWT = 2. jMax = 1.
+ 
+
+j = 1 LOOP #1
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0347405
+ 
+Populating tangent ...
+Time to populate tangent: 0.00476572
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807430e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660700e-07
+
+Time to solve ∆s: 0.0435888
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802206e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974144e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434796e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097821e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] icNewton called: xx=-1 tt=0 -> xi=0 ti=0 val=0.986614
+[DIAG] icNewton called: xx=-1 tt=0.0208333 -> xi=0 ti=2 val=0.989118
+[DIAG] icNewton called: xx=-1 tt=0.0416667 -> xi=0 ti=4 val=0.991155
+[DIAG] icNewton called: xx=-1 tt=0.0625 -> xi=0 ti=6 val=0.992813
+[DIAG] icNewton called: xx=-1 tt=0.0833333 -> xi=0 ti=8 val=0.994161
+[DIAG] icNewton called: xx=-1 tt=0.104167 -> xi=0 ti=10 val=0.995256
+[DIAG] icNewton called: xx=-1 tt=0.125 -> xi=0 ti=12 val=0.996147
+[DIAG] icNewton called: xx=-1 tt=0.145833 -> xi=0 ti=14 val=0.99687
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 1 LOOP #2
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0340167
+ 
+Populating tangent ...
+Time to populate tangent: 0.00418403
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807371e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660416e-07
+
+Time to solve ∆s: 0.0410454
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802247e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974289e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434891e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.098177e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 1 LOOP #3
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0325781
+ 
+Populating tangent ...
+Time to populate tangent: 0.00305532
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807391e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660514e-07
+
+Time to solve ∆s: 0.0414571
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802146e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973931e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434817e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097900e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 1 LOOP #4
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0325959
+ 
+Populating tangent ...
+Time to populate tangent: 0.00301592
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807402e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660565e-07
+
+Time to solve ∆s: 0.0411176
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802218e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974188e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434920e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.098286e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 1 LOOP #5
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.033631
+ 
+Populating tangent ...
+Time to populate tangent: 0.00406158
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807411e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660607e-07
+
+Time to solve ∆s: 0.0409838
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802226e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974216e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434836e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097970e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 1 LOOP #6
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0336267
+ 
+Populating tangent ...
+Time to populate tangent: 0.00408427
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807405e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660582e-07
+
+Time to solve ∆s: 0.0504892
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802105e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973784e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434726e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097562e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 1 LOOP #7
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0324099
+ 
+Populating tangent ...
+Time to populate tangent: 0.0030773
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807401e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660562e-07
+
+Time to solve ∆s: 0.0414163
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802164e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973995e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434828e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097942e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 1 LOOP #8
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0325722
+ 
+Populating tangent ...
+Time to populate tangent: 0.00300951
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807408e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660597e-07
+
+Time to solve ∆s: 0.0412201
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802096e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973752e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434864e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.098075e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 1 LOOP #9
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0326387
+ 
+Populating tangent ...
+Time to populate tangent: 0.00303316
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807367e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660398e-07
+
+Time to solve ∆s: 0.0411815
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802018e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973476e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434841e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097992e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 1 LOOP #10
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0339582
+ 
+Populating tangent ...
+Time to populate tangent: 0.00349174
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807393e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660525e-07
+
+Time to solve ∆s: 0.0409142
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802076e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973682e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434805e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097856e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+Determined jMax: 2
+
+Setting jMax for this loop to 2. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.01]
+Discretizing ...
+after discretization ε = [0.01]
+field is resolved up to level 2
+Max coefficient: [1.202467906948057e-06, 1.916829945166879e-05, 0.0009079826060792856, 2.0028739277476003e-05]
+jMRWT = 2. jMax = 2.
+ 
+
+j = 2 LOOP #1
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0329984
+ 
+Populating tangent ...
+Time to populate tangent: 0.00381307
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807413e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660620e-07
+
+Time to solve ∆s: 0.0511154
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802209e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974156e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434783e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097775e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 2 LOOP #2
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0323367
+ 
+Populating tangent ...
+Time to populate tangent: 0.00301273
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807401e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660562e-07
+
+Time to solve ∆s: 0.041118
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802078e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973688e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434827e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097938e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 2 LOOP #3
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0333609
+ 
+Populating tangent ...
+Time to populate tangent: 0.00394017
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807356e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660343e-07
+
+Time to solve ∆s: 0.041148
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802199e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974120e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434822e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097920e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 2 LOOP #4
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.034053
+ 
+Populating tangent ...
+Time to populate tangent: 0.00352548
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807421e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660658e-07
+
+Time to solve ∆s: 0.0409813
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802172e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974024e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434772e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097733e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 2 LOOP #5
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.033049
+ 
+Populating tangent ...
+Time to populate tangent: 0.0034671
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807409e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660600e-07
+
+Time to solve ∆s: 0.0411086
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802185e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974068e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434743e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097623e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 2 LOOP #6
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0342873
+ 
+Populating tangent ...
+Time to populate tangent: 0.00356432
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807391e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660512e-07
+
+Time to solve ∆s: 0.0412954
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802200e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974123e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434836e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097973e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 2 LOOP #7
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0339638
+ 
+Populating tangent ...
+Time to populate tangent: 0.0039128
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807430e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660700e-07
+
+Time to solve ∆s: 0.0408487
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802224e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974207e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434796e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097824e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 2 LOOP #8
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0325248
+ 
+Populating tangent ...
+Time to populate tangent: 0.00300619
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807398e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660546e-07
+
+Time to solve ∆s: 0.0415068
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802126e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973860e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434727e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097564e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 2 LOOP #9
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0327232
+ 
+Populating tangent ...
+Time to populate tangent: 0.00347075
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807370e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660411e-07
+
+Time to solve ∆s: 0.0420275
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802163e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973990e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434819e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097910e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 2 LOOP #10
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0332678
+ 
+Populating tangent ...
+Time to populate tangent: 0.00376565
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807396e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660536e-07
+
+Time to solve ∆s: 0.0413514
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802047e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973578e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434791e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097804e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+Determined jMax: 3
+
+Setting jMax for this loop to 3. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.01]
+Discretizing ...
+after discretization ε = [0.01]
+field is resolved up to level 2
+Max coefficient: [1.202467906948057e-06, 1.9168302858628204e-05, 0.0009079825072518494, 2.002873967201952e-05]
+jMRWT = 2. jMax = 3.
+ 
+
+j = 3 LOOP #1
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0338931
+ 
+Populating tangent ...
+Time to populate tangent: 0.00409828
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807421e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660657e-07
+
+Time to solve ∆s: 0.0411321
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802095e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973749e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434764e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097703e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 3 LOOP #2
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0321621
+ 
+Populating tangent ...
+Time to populate tangent: 0.00297653
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807412e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660614e-07
+
+Time to solve ∆s: 0.0506276
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802087e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973719e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434827e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097938e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 3 LOOP #3
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0326099
+ 
+Populating tangent ...
+Time to populate tangent: 0.00309731
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807397e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660541e-07
+
+Time to solve ∆s: 0.0416191
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802481e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.975124e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434904e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.098226e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 3 LOOP #4
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.032758
+ 
+Populating tangent ...
+Time to populate tangent: 0.00375362
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807390e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660511e-07
+
+Time to solve ∆s: 0.0419803
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802259e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974334e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434775e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097742e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 3 LOOP #5
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0332461
+ 
+Populating tangent ...
+Time to populate tangent: 0.00383814
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807393e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660521e-07
+
+Time to solve ∆s: 0.0517414
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802214e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974174e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434770e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097726e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 3 LOOP #6
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0335208
+ 
+Populating tangent ...
+Time to populate tangent: 0.00386338
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807400e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660557e-07
+
+Time to solve ∆s: 0.0415138
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802304e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974495e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434770e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097725e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 3 LOOP #7
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0325117
+ 
+Populating tangent ...
+Time to populate tangent: 0.00343894
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807427e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660688e-07
+
+Time to solve ∆s: 0.0422403
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802069e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973655e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434851e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.098027e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 3 LOOP #8
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0324315
+ 
+Populating tangent ...
+Time to populate tangent: 0.00300318
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807418e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660642e-07
+
+Time to solve ∆s: 0.0511242
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802120e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973839e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434791e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097802e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 3 LOOP #9
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0325379
+ 
+Populating tangent ...
+Time to populate tangent: 0.00293107
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807434e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660719e-07
+
+Time to solve ∆s: 0.0414034
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802152e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973952e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434886e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.098159e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 3 LOOP #10
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0333399
+ 
+Populating tangent ...
+Time to populate tangent: 0.00401739
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807407e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660588e-07
+
+Time to solve ∆s: 0.0412027
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802234e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974245e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434864e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.098076e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+Determined jMax: 4
+
+Setting jMax for this loop to 4. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.01]
+Discretizing ...
+after discretization ε = [0.01]
+field is resolved up to level 2
+Max coefficient: [1.202467906948057e-06, 1.9168306027851308e-05, 0.0009079823712513734, 2.0028740252006264e-05]
+jMRWT = 2. jMax = 4.
+ 
+
+j = 4 LOOP #1
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0326597
+ 
+Populating tangent ...
+Time to populate tangent: 0.00354801
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807428e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660691e-07
+
+Time to solve ∆s: 0.0518796
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802185e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974070e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434712e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097509e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 4 LOOP #2
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0325964
+ 
+Populating tangent ...
+Time to populate tangent: 0.0030038
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807407e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660590e-07
+
+Time to solve ∆s: 0.0409073
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802371e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974733e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434800e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097836e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 4 LOOP #3
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0323194
+ 
+Populating tangent ...
+Time to populate tangent: 0.00297519
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807429e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660695e-07
+
+Time to solve ∆s: 0.0414564
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802223e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974206e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434879e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.098131e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 4 LOOP #4
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0327343
+ 
+Populating tangent ...
+Time to populate tangent: 0.00300539
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807398e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660547e-07
+
+Time to solve ∆s: 0.0416082
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802148e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973937e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434860e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.098063e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 4 LOOP #5
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0324932
+ 
+Populating tangent ...
+Time to populate tangent: 0.00307842
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807387e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660495e-07
+
+Time to solve ∆s: 0.0413188
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802205e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974139e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434800e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097837e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 4 LOOP #6
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0326844
+ 
+Populating tangent ...
+Time to populate tangent: 0.00380641
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807418e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660641e-07
+
+Time to solve ∆s: 0.0414278
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802189e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974082e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434888e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.098167e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 4 LOOP #7
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0322302
+ 
+Populating tangent ...
+Time to populate tangent: 0.00297895
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807423e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660667e-07
+
+Time to solve ∆s: 0.0411083
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802170e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974018e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434807e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097864e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 4 LOOP #8
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0325526
+ 
+Populating tangent ...
+Time to populate tangent: 0.00307229
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807386e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660491e-07
+
+Time to solve ∆s: 0.0510484
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802245e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974283e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434785e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097783e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 4 LOOP #9
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0325328
+ 
+Populating tangent ...
+Time to populate tangent: 0.00304807
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807442e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660757e-07
+
+Time to solve ∆s: 0.0415635
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802138e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.973904e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434805e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097857e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+
+j = 4 LOOP #10
+Building the distribution ... 
+[DIAG] right after clear_physical_data: now(interior 1,1) = 0.954045
+Performing BWT ...
+[DIAG] right after BWT: now(interior 1,1) = 0.981749
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 49 x 49 with 1820 nonzeros 
+[DIAG] fMat.norm() = 36.8091  fMat(1,1) = 0.981749
+
+[DIAG] before sparseMBNR: j=3 sizex=49 sizet=49
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+J = 2
+Solving using 1 process(es).
+# thresholded points = 581
+unknowns: 1717. knowns: 684
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 0.0325529
+ 
+Populating tangent ...
+Time to populate tangent: 0.00293093
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+L2 norm of b: 2.086933e+01
+Initial L2 norm of residual: 2.086933e+01
+Final L2 norm of residual: 1.807446e-05
+
+
+Iterations = 106
+Final Relative Residual Norm = 8.660778e-07
+
+Time to solve ∆s: 0.0413044
+ 
+r0: 2.80947
+BEGIN NEW INNER LOOP #########################
+Beginning inner loop iteration 0
+Solving for ∆∆s ... 
+L2 norm of b: 2.809470e+00
+Initial L2 norm of residual: 2.809470e+00
+Final L2 norm of residual: 2.802234e-06
+
+
+Iterations = 103
+Final Relative Residual Norm = 9.974243e-07
+
+residual: 0.952578
+norm(∆∆s): 1.23855
+ 
+Beginning inner loop iteration 1
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 2.676240e+00
+Initial L2 norm of residual: 2.676240e+00
+Final L2 norm of residual: 2.434690e-06
+
+
+Iterations = 112
+Final Relative Residual Norm = 9.097427e-07
+
+residual: 1.37525
+alpha < 0
+[DIAG] geometry level after sparseMBNR: 3 (was 3 before), nnz(j,l) before: 1824
+[DIAG] updatedFMat.norm() = 37.2654  updatedFMat(1,1) = 1.48886
+Re-discretizing Newton-corrected solution back into 'now'...
+[DIAG] right after discNewton: now(interior 1,1) = 0.981749
+Determined jMax: 5
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       1824    0       0       0       
+4       0       0       0       0       
+5       0       0       0       0       
+
+attempting to output the dense geometry...
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     383     442     358     
+3       2401    0       0       0       
+4       9409    0       0       0       
+5       0       0       0       0       
+
+rebuilding sparse state after creating dense VTK files...

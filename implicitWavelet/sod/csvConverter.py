@@ -6,8 +6,8 @@ import numpy as np
 # =============================================================================
 # VARIABLES TO CHANGE FOR FUTURE SIMULATIONS
 # =============================================================================
-input_file = 'rhoSol.csv'            # Your simulation output matrix
-output_file = 'paraview_ready_density.csv'  # The resulting Paraview-compatible file
+input_file = 'vSol.csv'            # Your simulation output matrix
+output_file = 'paraview_ready_velocity.csv'  # The resulting Paraview-compatible file
 
 # Spatial Domain boundaries (top row to bottom row)
 x_max = 0

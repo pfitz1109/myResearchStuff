@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<VTKFile type="PUnstructuredGrid" version="0.1" byte_order="LittleEndian" header_type="UInt32" compressor="vtkZLibDataCompressor">
+    <PUnstructuredGrid GhostLevel="0">
+        <PPointData>
+            <PDataArray type="Int8" Name="j"/>
+            <PDataArray type="Int32" Name="lambda"/>
+            <PDataArray type="Int32" Name="k" NumberOfComponents="2"/>
+            <PDataArray type="Float64" Name="u"/>
+            <PDataArray type="Float64" Name="u_d"/>
+            <PDataArray type="Int8" Name="u_essential"/>
+            <PDataArray type="Int8" Name="u_active"/>
+            <PDataArray type="Int8" Name="trials"/>
+            <PDataArray type="Float64" Name="∂u_∂x"/>
+            <PDataArray type="Float64" Name="∂u_∂x_d"/>
+            <PDataArray type="Float64" Name="∂u_∂xx"/>
+            <PDataArray type="Float64" Name="∂u_∂xx_d"/>
+            <PDataArray type="Float64" Name="∂u_∂y"/>
+            <PDataArray type="Float64" Name="∂u_∂y_d"/>
+        </PPointData>
+        <PPoints>
+            <PDataArray type="Float64" Name="Points" NumberOfComponents="3"/>
+        </PPoints>
+        <Piece Source="sparse_0_0.vtu"/>
+    </PUnstructuredGrid>
+</VTKFile>

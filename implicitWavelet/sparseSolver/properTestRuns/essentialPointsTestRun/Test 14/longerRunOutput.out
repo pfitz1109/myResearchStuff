@@ -1,0 +1,1169 @@
+Loading CRC_default/1.1
+Loading CRC_default/1.1
+Currently Loaded Modulefiles:
+ 1) cmake/4.1.0(default)   3) mpich/4.3.2/gcc/11.5.0  
+ 2) vtk/9.4.1(default)     4) intel/25.3(default)     
+
+Key:
+(symbolic-version)  
+mpirun -np 1 ./sparseApp nonlin.lua -T 6 -J 5 -i 10 -e 1e-2 -u 0.05
+
+rank:0 affinity:0000000000000000000000000000000000000000000000000000000000000001 nthreads:1
+SPARSE MODIFIED BURGERS'
+####################
+# INPUT PARAMETERS #
+####################
+px = 6
+pt = 6
+J = 5
+x : [-1, 1]
+y : [0, 0.5]
+z : [0, 0]
+n_dims : 2
+T : [0, 0]
+
+Will write output file(s) in directory: output/ every 1 time step(s)
+
+
+Constructing geometry container ... 
+Constructing derivative operators ... 
+thetas = [1, -0.002054794520547945, 0.19285714285714425, -0.00821917808219178]
+6th order basis in time. 6th order basis in space.
+Wavelet Initial Guess
+viscosity parameter ν = 0.05
+Reading the domain ... 
+xMin: -1 
+ xMax: 1 
+ tMin: 0 
+ tMax: 0.5
+jMin = 2. jMax = 5.
+Reading function to discretize ... 
+Using exact boundary conditions and interior guess of 0.1 as initial guess.
+Constructing integrator ... 
+Constructing discretization operator ... 
+Maximum resolution level to be used: 5
+
+Setting jMax for this loop to 1. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.01]
+Discretizing ...
+[/users/pfitzge4/MRWT/mrwt/include/mrwt/Discretizer.hpp:270] WARNING discretizer: field discretization overflowed j=5
+after discretization ε = [0.01]
+field is resolved up to level 4
+Max coefficient: [0.27070312499993016, 0, 0, 0]
+jMRWT = 4. jMax = 1.
+ 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 16176 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 21073
+unknowns: 15600. knowns: 21649
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.16511
+ 
+Populating tangent ...
+Time to populate tangent: 0.0742277
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 7724.93
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 7.724928e+03
+Initial L2 norm of residual: 7.724928e+03
+Final L2 norm of residual: 2.130840e+00
+
+
+Iterations = 10000
+Final Relative Residual Norm = 2.758395e-04
+
+residual: 0.146592
+norm(∆∆s): 58.758
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.132415e+03
+Initial L2 norm of residual: 1.132415e+03
+false convergence 2, L2 norm of residual: 8.155769e+01
+false convergence 2, L2 norm of residual: 7.703287e-02
+false convergence 2, L2 norm of residual: 1.138194e-03
+Final L2 norm of residual: 1.127226e-03
+
+
+Iterations = 4703
+Final Relative Residual Norm = 9.954182e-07
+
+residual: 0.174394
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.146592
+norm(∆∆s): 11.0458
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 2
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 18632 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 18617
+unknowns: 18056. knowns: 19193
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.3234
+ 
+Populating tangent ...
+Time to populate tangent: 0.0902872
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1388.11
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.388110e+03
+Initial L2 norm of residual: 1.388110e+03
+Final L2 norm of residual: 6.237471e-01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 4.493500e-04
+
+residual: 1.09201
+Globally-convergent weight: 0.92, yields new residual: 0.988454
+norm(∆∆s): 62.2105
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.372082e+03
+Initial L2 norm of residual: 1.372082e+03
+Final L2 norm of residual: 3.911232e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 2.850581e-02
+
+residual: 1.16513
+Globally-convergent weight: 0.51, yields new residual: 0.987945
+norm(∆∆s): 29.6285
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.371376e+03
+Initial L2 norm of residual: 1.371376e+03
+Final L2 norm of residual: 7.205500e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 5.254211e-02
+
+residual: 3.23876
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.987945
+norm(∆∆s): 29.6041
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 20088 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 17161
+unknowns: 19641. knowns: 17608
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.45288
+ 
+Populating tangent ...
+Time to populate tangent: 0.108648
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1994.92
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.994922e+03
+Initial L2 norm of residual: 1.994922e+03
+Final L2 norm of residual: 3.269858e+02
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.639091e-01
+
+residual: 0.639644
+norm(∆∆s): 44.3074
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.276040e+03
+Initial L2 norm of residual: 1.276040e+03
+Final L2 norm of residual: 1.095605e+02
+
+
+Iterations = 10000
+Final Relative Residual Norm = 8.585979e-02
+
+residual: 0.803829
+Globally-convergent weight: 0.64, yields new residual: 0.637809
+norm(∆∆s): 48.7762
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.272378e+03
+Initial L2 norm of residual: 1.272378e+03
+Final L2 norm of residual: 1.314509e+02
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.033112e-01
+
+residual: 1.22515
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.637809
+norm(∆∆s): 15.1229
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 22358 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 14891
+unknowns: 21891. knowns: 15358
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.77541
+ 
+Populating tangent ...
+Time to populate tangent: 0.136813
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 2297.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 2.297390e+03
+Initial L2 norm of residual: 2.297390e+03
+Final L2 norm of residual: 1.324255e+02
+
+
+Iterations = 10000
+Final Relative Residual Norm = 5.764171e-02
+
+residual: 0.594826
+norm(∆∆s): 41.8356
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.366547e+03
+Initial L2 norm of residual: 1.366547e+03
+Final L2 norm of residual: 6.670775e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 4.881484e-02
+
+residual: 0.602048
+Globally-convergent weight: 0.97, yields new residual: 0.59198
+norm(∆∆s): 30.8599
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 1.360010e+03
+Initial L2 norm of residual: 1.360010e+03
+false convergence 2, L2 norm of residual: 1.356346e+00
+Final L2 norm of residual: 1.271050e-03
+
+
+Iterations = 4460
+Final Relative Residual Norm = 9.345891e-07
+
+residual: 1.51724
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.59198
+norm(∆∆s): 32.4829
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 24549 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 12700
+unknowns: 24090. knowns: 13159
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.95939
+ 
+Populating tangent ...
+Time to populate tangent: 0.134553
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 2164.75
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 2.164747e+03
+Initial L2 norm of residual: 2.164747e+03
+Final L2 norm of residual: 1.334722e+02
+
+
+Iterations = 10000
+Final Relative Residual Norm = 6.165718e-02
+
+residual: 0.441411
+norm(∆∆s): 39.6142
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 9.555440e+02
+Initial L2 norm of residual: 9.555440e+02
+Final L2 norm of residual: 1.411988e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.477680e-02
+
+residual: 0.656402
+Globally-convergent weight: 0.5, yields new residual: 0.439347
+norm(∆∆s): 69.3575
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 9.510751e+02
+Initial L2 norm of residual: 9.510751e+02
+Final L2 norm of residual: 2.135020e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 2.244849e-02
+
+residual: 0.918305
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.439347
+norm(∆∆s): 28.768
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 26283 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 10966
+unknowns: 25824. knowns: 11425
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.2476
+ 
+Populating tangent ...
+Time to populate tangent: 0.129572
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1373.8
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.373800e+03
+Initial L2 norm of residual: 1.373800e+03
+Final L2 norm of residual: 6.318696e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 4.599429e-02
+
+residual: 0.603627
+norm(∆∆s): 31.5728
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 8.292632e+02
+Initial L2 norm of residual: 8.292632e+02
+Final L2 norm of residual: 5.698648e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 6.871941e-02
+
+residual: 0.778268
+Globally-convergent weight: 0.21, yields new residual: 0.603422
+norm(∆∆s): 13.8901
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 8.289816e+02
+Initial L2 norm of residual: 8.289816e+02
+Final L2 norm of residual: 3.518117e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 4.243902e-02
+
+residual: 0.911335
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.603422
+norm(∆∆s): 14.3463
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 28443 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 8806
+unknowns: 27977. knowns: 9272
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.49061
+ 
+Populating tangent ...
+Time to populate tangent: 0.157074
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1181.72
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.181718e+03
+Initial L2 norm of residual: 1.181718e+03
+Final L2 norm of residual: 8.451586e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 7.151949e-02
+
+residual: 0.734178
+norm(∆∆s): 34.163
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 8.675913e+02
+Initial L2 norm of residual: 8.675913e+02
+Final L2 norm of residual: 1.990634e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 2.294438e-02
+
+residual: 4.00502
+Globally-convergent weight: 0.01, yields new residual: 0.733928
+norm(∆∆s): 18.9846
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 8.672955e+02
+Initial L2 norm of residual: 8.672955e+02
+Final L2 norm of residual: 6.364842e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 7.338723e-02
+
+residual: 0.973339
+Globally-convergent weight: 0.24, yields new residual: 0.733177
+norm(∆∆s): 35.7285
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 8.664088e+02
+Initial L2 norm of residual: 8.664088e+02
+Final L2 norm of residual: 6.219092e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 7.178011e-02
+
+residual: 1.0482
+Globally-convergent weight: 0.05, yields new residual: 0.733083
+norm(∆∆s): 21.5215
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 8.662978e+02
+Initial L2 norm of residual: 8.662978e+02
+Final L2 norm of residual: 5.611723e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 6.477823e-02
+
+residual: 1.07533
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.733083
+norm(∆∆s): 17.0084
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 5
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 30608 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 6641
+unknowns: 30137. knowns: 7112
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.86205
+ 
+Populating tangent ...
+Time to populate tangent: 0.191771
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1193.03
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.193029e+03
+Initial L2 norm of residual: 1.193029e+03
+Final L2 norm of residual: 7.000458e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 5.867804e-02
+
+residual: 0.724276
+norm(∆∆s): 62.6342
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 8.640819e+02
+Initial L2 norm of residual: 8.640819e+02
+Final L2 norm of residual: 5.124875e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 5.931006e-02
+
+residual: 6.89652
+Globally-convergent weight: 0.01, yields new residual: 0.723198
+norm(∆∆s): 44.0035
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 8.627960e+02
+Initial L2 norm of residual: 8.627960e+02
+Final L2 norm of residual: 7.613887e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 8.824667e-02
+
+residual: 1.28393
+Globally-convergent weight: 0.55, yields new residual: 0.718835
+norm(∆∆s): 81.5099
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+L2 norm of b: 8.575906e+02
+Initial L2 norm of residual: 8.575906e+02
+Final L2 norm of residual: 2.365473e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 2.758278e-02
+
+residual: 337.129
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.718835
+norm(∆∆s): 180.432
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 4
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.32467
+ 
+Populating tangent ...
+Time to populate tangent: 0.230484
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 2.619136e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.637590e-02
+
+residual: 3.62132e+07
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 58682
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.41233
+ 
+Populating tangent ...
+Time to populate tangent: 0.207087
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 2.640292e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.650817e-02
+
+residual: 127.499
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 111.484
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Determined jMax: 2
+
+Setting jMax for this loop to 2. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.01]
+Discretizing ...
+after discretization ε = [0.01]
+field is resolved up to level 4
+Max coefficient: [0.6278639338329861, 10.990437469605546, 3341.1457089346713, 559.8049360094369]
+jMRWT = 4. jMax = 2.
+ 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.31741
+ 
+Populating tangent ...
+Time to populate tangent: 0.250695
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 2.574305e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.609559e-02
+
+residual: 14418.2
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 1143.88
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.32097
+ 
+Populating tangent ...
+Time to populate tangent: 0.235554
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 3.822940e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 2.390256e-02
+
+residual: 7.80692e+07
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 85714.8
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.27045
+ 
+Populating tangent ...
+Time to populate tangent: 0.182857
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 2.660882e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.663690e-02
+
+residual: 43564.6
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 2048.6
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.3446
+ 
+Populating tangent ...
+Time to populate tangent: 0.223361
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 2.669516e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.669089e-02
+
+residual: 717.829
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 245.219
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.26518
+ 
+Populating tangent ...
+Time to populate tangent: 0.230099
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 2.577608e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.611624e-02
+
+residual: 614.891
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 260.904
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.31052
+ 
+Populating tangent ...
+Time to populate tangent: 0.219742
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 2.789098e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.743856e-02
+
+residual: 2.08072e+07
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 44498.4
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.26717
+ 
+Populating tangent ...
+Time to populate tangent: 0.130731
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 2.689887e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.681826e-02
+
+residual: 89011.8
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 2944.17
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.32578
+ 
+Populating tangent ...
+Time to populate tangent: 0.255094
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 2.628851e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.643663e-02
+
+residual: 952.1
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 311.914
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.27088
+ 
+Populating tangent ...
+Time to populate tangent: 0.260404
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 2.672665e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.671058e-02
+
+residual: 801.642
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 283.58
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.27323
+ 
+Populating tangent ...
+Time to populate tangent: 0.233516
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 2.477821e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.549233e-02
+
+residual: 130.242
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 109.132
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Determined jMax: 3
+
+Setting jMax for this loop to 3. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.01]
+Discretizing ...
+after discretization ε = [0.01]
+field is resolved up to level 4
+Max coefficient: [0.6278639338329854, 10.990437469605622, 3341.1457089347073, 559.8049360094369]
+jMRWT = 4. jMax = 3.
+ 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.3208
+ 
+Populating tangent ...
+Time to populate tangent: 0.23674
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 2.686735e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.679855e-02
+
+residual: 2796.65
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 525.97
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.28212
+ 
+Populating tangent ...
+Time to populate tangent: 0.128565
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03
+Final L2 norm of residual: 2.715020e+01
+
+
+Iterations = 10000
+Final Relative Residual Norm = 1.697540e-02
+
+residual: 8888.1
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 1
+norm(∆∆s): 965.114
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 1
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 32405 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 4844
+unknowns: 31940. knowns: 5309
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.2282
+ 
+Populating tangent ...
+Time to populate tangent: 0.237062
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1599.39
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+L2 norm of b: 1.599385e+03
+Initial L2 norm of residual: 1.599385e+03

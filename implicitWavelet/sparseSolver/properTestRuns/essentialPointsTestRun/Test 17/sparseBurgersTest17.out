@@ -1,0 +1,3219 @@
+Loading CRC_default/1.1
+Loading CRC_default/1.1
+Currently Loaded Modulefiles:
+ 1) cmake/4.1.0(default)   3) mpich/4.3.2/gcc/11.5.0  
+ 2) vtk/9.4.1(default)     4) intel/25.3(default)     
+
+Key:
+(symbolic-version)  
+mpirun -np 1 ./sparseApp nonlin.lua -T 6 -J 5 -i 10 -e 1e-4 -u 0.05
+
+rank:0 affinity:0000000000000000000000000000000000000000000000000000000010000000 nthreads:1
+SPARSE MODIFIED BURGERS'
+####################
+# INPUT PARAMETERS #
+####################
+px = 6
+pt = 6
+J = 5
+x : [-1, 1]
+y : [0, 0.5]
+z : [0, 0]
+n_dims : 2
+T : [0, 0]
+
+Will write output file(s) in directory: output/ every 1 time step(s)
+
+
+Constructing geometry container ... 
+Constructing derivative operators ... 
+thetas = [1, -0.002054794520547945, 0.19285714285714425, -0.00821917808219178]
+6th order basis in time. 6th order basis in space.
+Wavelet Initial Guess
+viscosity parameter ν = 0.05
+Reading the domain ... 
+xMin: -1 
+ xMax: 1 
+ tMin: 0 
+ tMax: 0.5
+jMin = 2. jMax = 5.
+Reading function to discretize ... 
+Using exact boundary conditions and interior guess of 0.1 as initial guess.
+Constructing integrator ... 
+Constructing discretization operator ... 
+Maximum resolution level to be used: 5
+
+Setting jMax for this loop to 1. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.0001]
+Discretizing ...
+[/users/pfitzge4/MRWT/mrwt/include/mrwt/Discretizer.hpp:270] WARNING discretizer: field discretization overflowed j=5
+after discretization ε = [0.0001]
+field is resolved up to level 4
+Max coefficient: [0.27070312499993016, 0, 0, 0]
+jMRWT = 4. jMax = 1.
+ 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 16254 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 20995
+unknowns: 15678. knowns: 21571
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 1.87358
+ 
+Populating tangent ...
+Time to populate tangent: 0.0615969
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 7724.93
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 7.724928e+03
+Initial L2 norm of residual: 7.724928e+03
+Final L2 norm of residual: 7.211625e-03
+
+
+Iterations = 427
+Final Relative Residual Norm = 9.335524e-07
+
+residual: 0.145815
+norm(∆∆s): 59.1323
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.126408e+03
+Initial L2 norm of residual: 1.126408e+03
+Final L2 norm of residual: 1.112418e-03
+
+
+Iterations = 451
+Final Relative Residual Norm = 9.875804e-07
+
+residual: 0.185871
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.145815
+norm(∆∆s): 12.7468
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 2
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 24788 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 12461
+unknowns: 24212. knowns: 13037
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.84501
+ 
+Populating tangent ...
+Time to populate tangent: 0.101382
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1437.09
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.437091e+03
+Initial L2 norm of residual: 1.437091e+03
+Final L2 norm of residual: 1.419169e-03
+
+
+Iterations = 663
+Final Relative Residual Norm = 9.875290e-07
+
+residual: 1.06828
+Globally-convergent weight: 0.94, yields new residual: 0.987876
+norm(∆∆s): 87.3225
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.419668e+03
+Initial L2 norm of residual: 1.419668e+03
+Final L2 norm of residual: 1.329412e-03
+
+
+Iterations = 614
+Final Relative Residual Norm = 9.364244e-07
+
+residual: 1.51495
+Globally-convergent weight: 0.31, yields new residual: 0.985765
+norm(∆∆s): 88.6556
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.416634e+03
+Initial L2 norm of residual: 1.416634e+03
+Final L2 norm of residual: 1.352473e-03
+
+
+Iterations = 618
+Final Relative Residual Norm = 9.547084e-07
+
+residual: 2.12458
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.985765
+norm(∆∆s): 65.2307
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 31142 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 6107
+unknowns: 30566. knowns: 6683
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.91852
+ 
+Populating tangent ...
+Time to populate tangent: 0.173046
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 2400.82
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 2.400819e+03
+Initial L2 norm of residual: 2.400819e+03
+Final L2 norm of residual: 2.310757e-03
+
+
+Iterations = 696
+Final Relative Residual Norm = 9.624871e-07
+
+residual: 0.568696
+norm(∆∆s): 82.2617
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.365337e+03
+Initial L2 norm of residual: 1.365337e+03
+Final L2 norm of residual: 1.339794e-03
+
+
+Iterations = 676
+Final Relative Residual Norm = 9.812917e-07
+
+residual: 0.730297
+Globally-convergent weight: 0.62, yields new residual: 0.56663
+norm(∆∆s): 86.8938
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.360377e+03
+Initial L2 norm of residual: 1.360377e+03
+Final L2 norm of residual: 1.346250e-03
+
+
+Iterations = 663
+Final Relative Residual Norm = 9.896158e-07
+
+residual: 1.29645
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.56663
+norm(∆∆s): 48.771
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 35237 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 2012
+unknowns: 34743. knowns: 2506
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 4.60261
+ 
+Populating tangent ...
+Time to populate tangent: 0.193208
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 2183.52
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 2.183517e+03
+Initial L2 norm of residual: 2.183517e+03
+Final L2 norm of residual: 2.034128e-03
+
+
+Iterations = 618
+Final Relative Residual Norm = 9.315833e-07
+
+residual: 1.38915
+Globally-convergent weight: 0.82, yields new residual: 0.982536
+norm(∆∆s): 124.829
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 2.145383e+03
+Initial L2 norm of residual: 2.145383e+03
+Final L2 norm of residual: 2.030582e-03
+
+
+Iterations = 602
+Final Relative Residual Norm = 9.464892e-07
+
+residual: 0.817103
+norm(∆∆s): 68.4282
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.784158e+03
+Initial L2 norm of residual: 1.784158e+03
+Final L2 norm of residual: 1.753552e-03
+
+
+Iterations = 600
+Final Relative Residual Norm = 9.828457e-07
+
+residual: 1.62597
+Globally-convergent weight: 0.18, yields new residual: 0.815686
+norm(∆∆s): 89.3454
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.781063e+03
+Initial L2 norm of residual: 1.781063e+03
+Final L2 norm of residual: 1.741879e-03
+
+
+Iterations = 609
+Final Relative Residual Norm = 9.779997e-07
+
+residual: 2.3591
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.815686
+norm(∆∆s): 129.405
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 4
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 30334 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 6915
+unknowns: 29893. knowns: 7356
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.72717
+ 
+Populating tangent ...
+Time to populate tangent: 0.156268
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 2643.99
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 2.643990e+03
+Initial L2 norm of residual: 2.643990e+03
+Final L2 norm of residual: 2.602737e-03
+
+
+Iterations = 528
+Final Relative Residual Norm = 9.843975e-07
+
+residual: 0.444701
+norm(∆∆s): 100.729
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.175786e+03
+Initial L2 norm of residual: 1.175786e+03
+Final L2 norm of residual: 1.172631e-03
+
+
+Iterations = 555
+Final Relative Residual Norm = 9.973169e-07
+
+residual: 0.232779
+norm(∆∆s): 49.3775
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.154654e+02
+Initial L2 norm of residual: 6.154654e+02
+Final L2 norm of residual: 5.995362e-04
+
+
+Iterations = 523
+Final Relative Residual Norm = 9.741185e-07
+
+residual: 0.140212
+norm(∆∆s): 14.025
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 3.707190e+02
+Initial L2 norm of residual: 3.707190e+02
+Final L2 norm of residual: 3.637492e-04
+
+
+Iterations = 512
+Final Relative Residual Norm = 9.811992e-07
+
+residual: 0.10311
+norm(∆∆s): 5.38891
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 2.726214e+02
+Initial L2 norm of residual: 2.726214e+02
+Final L2 norm of residual: 2.612289e-04
+
+
+Iterations = 513
+Final Relative Residual Norm = 9.582116e-07
+
+residual: 0.0808315
+norm(∆∆s): 3.13948
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 2.137177e+02
+Initial L2 norm of residual: 2.137177e+02
+Final L2 norm of residual: 2.029745e-04
+
+
+Iterations = 529
+Final Relative Residual Norm = 9.497317e-07
+
+residual: 0.0619244
+norm(∆∆s): 3.00181
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.637274e+02
+Initial L2 norm of residual: 1.637274e+02
+Final L2 norm of residual: 1.540043e-04
+
+
+Iterations = 536
+Final Relative Residual Norm = 9.406146e-07
+
+residual: 0.0488859
+norm(∆∆s): 2.0499
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.292537e+02
+Initial L2 norm of residual: 1.292537e+02
+Final L2 norm of residual: 1.272233e-04
+
+
+Iterations = 537
+Final Relative Residual Norm = 9.842912e-07
+
+residual: 0.0400351
+norm(∆∆s): 1.68697
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.058524e+02
+Initial L2 norm of residual: 1.058524e+02
+Final L2 norm of residual: 1.056971e-04
+
+
+Iterations = 568
+Final Relative Residual Norm = 9.985333e-07
+
+residual: 0.0401116
+Globally-convergent weight: 0.98, yields new residual: 0.0399719
+norm(∆∆s): 2.48421
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.056852e+02
+Initial L2 norm of residual: 1.056852e+02
+Final L2 norm of residual: 1.051041e-04
+
+
+Iterations = 586
+Final Relative Residual Norm = 9.945014e-07
+
+residual: 0.0602778
+Globally-convergent weight: 0.02, yields new residual: 0.0399672
+norm(∆∆s): 4.36952
+ 
+# Newton iterations completed: 10
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 27686 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 9563
+unknowns: 27380. knowns: 9869
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.31027
+ 
+Populating tangent ...
+Time to populate tangent: 0.128491
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 142.892
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.428924e+02
+Initial L2 norm of residual: 1.428924e+02
+Final L2 norm of residual: 1.402392e-04
+
+
+Iterations = 615
+Final Relative Residual Norm = 9.814317e-07
+
+residual: 0.124444
+norm(∆∆s): 3.56925
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.778211e+01
+Initial L2 norm of residual: 1.778211e+01
+Final L2 norm of residual: 1.694963e-05
+
+
+Iterations = 526
+Final Relative Residual Norm = 9.531842e-07
+
+residual: 0.099875
+norm(∆∆s): 0.248573
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.427138e+01
+Initial L2 norm of residual: 1.427138e+01
+Final L2 norm of residual: 1.385581e-05
+
+
+Iterations = 522
+Final Relative Residual Norm = 9.708805e-07
+
+residual: 0.0903881
+norm(∆∆s): 0.118265
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.291578e+01
+Initial L2 norm of residual: 1.291578e+01
+Final L2 norm of residual: 1.279814e-05
+
+
+Iterations = 517
+Final Relative Residual Norm = 9.908917e-07
+
+residual: 0.0822406
+norm(∆∆s): 0.119904
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.175156e+01
+Initial L2 norm of residual: 1.175156e+01
+Final L2 norm of residual: 1.129916e-05
+
+
+Iterations = 510
+Final Relative Residual Norm = 9.615030e-07
+
+residual: 0.0765849
+norm(∆∆s): 0.0977778
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.094340e+01
+Initial L2 norm of residual: 1.094340e+01
+Final L2 norm of residual: 1.087545e-05
+
+
+Iterations = 516
+Final Relative Residual Norm = 9.937908e-07
+
+residual: 0.0739269
+norm(∆∆s): 0.0917367
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.056360e+01
+Initial L2 norm of residual: 1.056360e+01
+Final L2 norm of residual: 1.038255e-05
+
+
+Iterations = 517
+Final Relative Residual Norm = 9.828609e-07
+
+residual: 0.0766335
+Globally-convergent weight: 0.67, yields new residual: 0.0739049
+norm(∆∆s): 0.0779443
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.056045e+01
+Initial L2 norm of residual: 1.056045e+01
+Final L2 norm of residual: 1.045910e-05
+
+
+Iterations = 508
+Final Relative Residual Norm = 9.904027e-07
+
+residual: 0.0837917
+Globally-convergent weight: 0.42, yields new residual: 0.0738761
+norm(∆∆s): 0.0794679
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.055633e+01
+Initial L2 norm of residual: 1.055633e+01
+Final L2 norm of residual: 1.044541e-05
+
+
+Iterations = 510
+Final Relative Residual Norm = 9.894922e-07
+
+residual: 0.089927
+Globally-convergent weight: 0.28, yields new residual: 0.0738675
+norm(∆∆s): 0.0765868
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.055511e+01
+Initial L2 norm of residual: 1.055511e+01
+Final L2 norm of residual: 1.050569e-05
+
+
+Iterations = 510
+Final Relative Residual Norm = 9.953185e-07
+
+residual: 0.0919382
+Globally-convergent weight: 0.21, yields new residual: 0.0738133
+norm(∆∆s): 0.0733773
+ 
+# Newton iterations completed: 10
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 28207 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 9042
+unknowns: 27842. knowns: 9407
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.40267
+ 
+Populating tangent ...
+Time to populate tangent: 0.108676
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 14.6044
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.460439e+01
+Initial L2 norm of residual: 1.460439e+01
+Final L2 norm of residual: 1.408695e-05
+
+
+Iterations = 615
+Final Relative Residual Norm = 9.645698e-07
+
+residual: 0.501942
+norm(∆∆s): 0.64541
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 7.330556e+00
+Initial L2 norm of residual: 7.330556e+00
+Final L2 norm of residual: 7.252505e-06
+
+
+Iterations = 556
+Final Relative Residual Norm = 9.893527e-07
+
+residual: 0.431216
+norm(∆∆s): 0.032562
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.297651e+00
+Initial L2 norm of residual: 6.297651e+00
+Final L2 norm of residual: 5.949329e-06
+
+
+Iterations = 564
+Final Relative Residual Norm = 9.446902e-07
+
+residual: 0.415241
+norm(∆∆s): 0.0294536
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.064337e+00
+Initial L2 norm of residual: 6.064337e+00
+Final L2 norm of residual: 5.987540e-06
+
+
+Iterations = 556
+Final Relative Residual Norm = 9.873363e-07
+
+residual: 0.491349
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.415241
+norm(∆∆s): 0.0312791
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 4
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 30297 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 6952
+unknowns: 29859. knowns: 7390
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.71603
+ 
+Populating tangent ...
+Time to populate tangent: 0.158318
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 7.76791
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 7.767906e+00
+Initial L2 norm of residual: 7.767906e+00
+Final L2 norm of residual: 7.745599e-06
+
+
+Iterations = 680
+Final Relative Residual Norm = 9.971284e-07
+
+residual: 0.487103
+norm(∆∆s): 0.294641
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 3.783770e+00
+Initial L2 norm of residual: 3.783770e+00
+Final L2 norm of residual: 3.582859e-06
+
+
+Iterations = 655
+Final Relative Residual Norm = 9.469019e-07
+
+residual: 0.469719
+norm(∆∆s): 0.0274661
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 3.648733e+00
+Initial L2 norm of residual: 3.648733e+00
+Final L2 norm of residual: 3.593879e-06
+
+
+Iterations = 658
+Final Relative Residual Norm = 9.849663e-07
+
+residual: 0.426465
+norm(∆∆s): 0.0360386
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 3.312743e+00
+Initial L2 norm of residual: 3.312743e+00
+Final L2 norm of residual: 3.178971e-06
+
+
+Iterations = 670
+Final Relative Residual Norm = 9.596189e-07
+
+residual: 0.412468
+norm(∆∆s): 0.0391143
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 3.204010e+00
+Initial L2 norm of residual: 3.204010e+00
+Final L2 norm of residual: 3.078291e-06
+
+
+Iterations = 654
+Final Relative Residual Norm = 9.607622e-07
+
+residual: 0.547682
+Globally-convergent weight: 0.12, yields new residual: 0.412343
+norm(∆∆s): 0.0295499
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 3.203038e+00
+Initial L2 norm of residual: 3.203038e+00
+Final L2 norm of residual: 2.976397e-06
+
+
+Iterations = 649
+Final Relative Residual Norm = 9.292420e-07
+
+residual: 0.532183
+Globally-convergent weight: 0.06, yields new residual: 0.412286
+norm(∆∆s): 0.0253098
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 3.202603e+00
+Initial L2 norm of residual: 3.202603e+00
+Final L2 norm of residual: 3.119330e-06
+
+
+Iterations = 646
+Final Relative Residual Norm = 9.739985e-07
+
+residual: 0.522607
+Globally-convergent weight: 0.05, yields new residual: 0.41227
+norm(∆∆s): 0.0234035
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 3.202478e+00
+Initial L2 norm of residual: 3.202478e+00
+Final L2 norm of residual: 3.157309e-06
+
+
+Iterations = 642
+Final Relative Residual Norm = 9.858958e-07
+
+residual: 0.514147
+Globally-convergent weight: 0.05, yields new residual: 0.412268
+norm(∆∆s): 0.0219409
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 3.202456e+00
+Initial L2 norm of residual: 3.202456e+00
+Final L2 norm of residual: 3.168865e-06
+
+
+Iterations = 637
+Final Relative Residual Norm = 9.895111e-07
+
+residual: 0.505406
+Globally-convergent weight: 0.05, yields new residual: 0.41222
+norm(∆∆s): 0.0206014
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 3.202089e+00
+Initial L2 norm of residual: 3.202089e+00
+Final L2 norm of residual: 3.110141e-06
+
+
+Iterations = 634
+Final Relative Residual Norm = 9.712850e-07
+
+residual: 0.496446
+Globally-convergent weight: 0.07, yields new residual: 0.412163
+norm(∆∆s): 0.0193943
+ 
+# Newton iterations completed: 10
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 30253 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 6996
+unknowns: 29812. knowns: 7437
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.81096
+ 
+Populating tangent ...
+Time to populate tangent: 0.145
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 4.32754
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 4.327537e+00
+Initial L2 norm of residual: 4.327537e+00
+Final L2 norm of residual: 4.070773e-06
+
+
+Iterations = 665
+Final Relative Residual Norm = 9.406674e-07
+
+residual: 0.554452
+norm(∆∆s): 0.221125
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 2.399413e+00
+Initial L2 norm of residual: 2.399413e+00
+Final L2 norm of residual: 2.352067e-06
+
+
+Iterations = 579
+Final Relative Residual Norm = 9.802678e-07
+
+residual: 0.4502
+norm(∆∆s): 0.0121733
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.948258e+00
+Initial L2 norm of residual: 1.948258e+00
+Final L2 norm of residual: 1.929038e-06
+
+
+Iterations = 578
+Final Relative Residual Norm = 9.901346e-07
+
+residual: 0.406528
+norm(∆∆s): 0.0129906
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.759265e+00
+Initial L2 norm of residual: 1.759265e+00
+Final L2 norm of residual: 1.672232e-06
+
+
+Iterations = 573
+Final Relative Residual Norm = 9.505287e-07
+
+residual: 0.386455
+norm(∆∆s): 0.0120167
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.672400e+00
+Initial L2 norm of residual: 1.672400e+00
+Final L2 norm of residual: 1.572614e-06
+
+
+Iterations = 570
+Final Relative Residual Norm = 9.403336e-07
+
+residual: 0.371912
+norm(∆∆s): 0.0117268
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.609462e+00
+Initial L2 norm of residual: 1.609462e+00
+Final L2 norm of residual: 1.515475e-06
+
+
+Iterations = 568
+Final Relative Residual Norm = 9.416036e-07
+
+residual: 0.361892
+norm(∆∆s): 0.0110936
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.566100e+00
+Initial L2 norm of residual: 1.566100e+00
+Final L2 norm of residual: 1.526733e-06
+
+
+Iterations = 565
+Final Relative Residual Norm = 9.748630e-07
+
+residual: 0.353909
+norm(∆∆s): 0.0104113
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.531555e+00
+Initial L2 norm of residual: 1.531555e+00
+Final L2 norm of residual: 1.505213e-06
+
+
+Iterations = 564
+Final Relative Residual Norm = 9.828005e-07
+
+residual: 0.347771
+norm(∆∆s): 0.00982089
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.504992e+00
+Initial L2 norm of residual: 1.504992e+00
+Final L2 norm of residual: 1.430774e-06
+
+
+Iterations = 566
+Final Relative Residual Norm = 9.506856e-07
+
+residual: 0.342836
+norm(∆∆s): 0.0092094
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.483633e+00
+Initial L2 norm of residual: 1.483633e+00
+Final L2 norm of residual: 1.400461e-06
+
+
+Iterations = 566
+Final Relative Residual Norm = 9.439398e-07
+
+residual: 0.338878
+norm(∆∆s): 0.00868433
+ 
+# Newton iterations completed: 10
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 26744 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 10505
+unknowns: 26417. knowns: 10832
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.1914
+ 
+Populating tangent ...
+Time to populate tangent: 0.120095
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.90987
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.909867e+00
+Initial L2 norm of residual: 1.909867e+00
+Final L2 norm of residual: 1.886970e-06
+
+
+Iterations = 507
+Final Relative Residual Norm = 9.880112e-07
+
+residual: 0.759789
+norm(∆∆s): 0.115315
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.451095e+00
+Initial L2 norm of residual: 1.451095e+00
+Final L2 norm of residual: 1.428094e-06
+
+
+Iterations = 479
+Final Relative Residual Norm = 9.841492e-07
+
+residual: 0.59347
+norm(∆∆s): 0.0129072
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.133450e+00
+Initial L2 norm of residual: 1.133450e+00
+Final L2 norm of residual: 1.037958e-06
+
+
+Iterations = 479
+Final Relative Residual Norm = 9.157510e-07
+
+residual: 0.586765
+norm(∆∆s): 0.0103164
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.120642e+00
+Initial L2 norm of residual: 1.120642e+00
+Final L2 norm of residual: 1.105969e-06
+
+
+Iterations = 453
+Final Relative Residual Norm = 9.869066e-07
+
+residual: 0.709753
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.586765
+norm(∆∆s): 0.00526303
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 4
+J = 4 loop finished. 
+Determined jMax: 2
+
+Setting jMax for this loop to 2. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.0001]
+Discretizing ...
+after discretization ε = [0.0001]
+field is resolved up to level 4
+Max coefficient: [0.0008628073309973772, 0.026801308708844798, 2.8657252672403524, 0.5477443370962061]
+jMRWT = 4. jMax = 2.
+ 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 27972 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 9277
+unknowns: 27635. knowns: 9614
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.39517
+ 
+Populating tangent ...
+Time to populate tangent: 0.132487
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.44331
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.443308e+00
+Initial L2 norm of residual: 1.443308e+00
+Final L2 norm of residual: 1.359531e-06
+
+
+Iterations = 573
+Final Relative Residual Norm = 9.419551e-07
+
+residual: 0.86544
+norm(∆∆s): 0.072036
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.249097e+00
+Initial L2 norm of residual: 1.249097e+00
+Final L2 norm of residual: 1.233241e-06
+
+
+Iterations = 491
+Final Relative Residual Norm = 9.873064e-07
+
+residual: 0.767386
+norm(∆∆s): 0.0121652
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.107574e+00
+Initial L2 norm of residual: 1.107574e+00
+Final L2 norm of residual: 1.029546e-06
+
+
+Iterations = 483
+Final Relative Residual Norm = 9.295504e-07
+
+residual: 1.19282
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.767386
+norm(∆∆s): 0.00714467
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 25854 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 11395
+unknowns: 25485. knowns: 11764
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.06223
+ 
+Populating tangent ...
+Time to populate tangent: 0.113613
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.62118
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.621183e+00
+Initial L2 norm of residual: 1.621183e+00
+Final L2 norm of residual: 1.555551e-06
+
+
+Iterations = 502
+Final Relative Residual Norm = 9.595158e-07
+
+residual: 0.78472
+norm(∆∆s): 0.0400719
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.272175e+00
+Initial L2 norm of residual: 1.272175e+00
+Final L2 norm of residual: 1.223484e-06
+
+
+Iterations = 475
+Final Relative Residual Norm = 9.617260e-07
+
+residual: 0.811075
+Globally-convergent weight: 0.93, yields new residual: 0.782899
+norm(∆∆s): 0.0158144
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.269222e+00
+Initial L2 norm of residual: 1.269222e+00
+Final L2 norm of residual: 1.194233e-06
+
+
+Iterations = 484
+Final Relative Residual Norm = 9.409176e-07
+
+residual: 2.29514
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.782899
+norm(∆∆s): 0.0130419
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 26324 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 10925
+unknowns: 25946. knowns: 11303
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.13195
+ 
+Populating tangent ...
+Time to populate tangent: 0.123561
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.80033
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.800331e+00
+Initial L2 norm of residual: 1.800331e+00
+Final L2 norm of residual: 1.745566e-06
+
+
+Iterations = 481
+Final Relative Residual Norm = 9.695808e-07
+
+residual: 0.488621
+norm(∆∆s): 0.0391704
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.796788e-01
+Initial L2 norm of residual: 8.796788e-01
+Final L2 norm of residual: 8.261750e-07
+
+
+Iterations = 447
+Final Relative Residual Norm = 9.391781e-07
+
+residual: 0.401231
+norm(∆∆s): 0.00356977
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 7.223481e-01
+Initial L2 norm of residual: 7.223481e-01
+Final L2 norm of residual: 7.112154e-07
+
+
+Iterations = 443
+Final Relative Residual Norm = 9.845882e-07
+
+residual: 0.538466
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.401231
+norm(∆∆s): 0.00328308
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 24768 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 12481
+unknowns: 24368. knowns: 12881
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.88352
+ 
+Populating tangent ...
+Time to populate tangent: 0.115339
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.13625
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.136249e+00
+Initial L2 norm of residual: 1.136249e+00
+Final L2 norm of residual: 1.087001e-06
+
+
+Iterations = 405
+Final Relative Residual Norm = 9.566580e-07
+
+residual: 0.771541
+norm(∆∆s): 0.0108034
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.766620e-01
+Initial L2 norm of residual: 8.766620e-01
+Final L2 norm of residual: 8.418490e-07
+
+
+Iterations = 395
+Final Relative Residual Norm = 9.602892e-07
+
+residual: 0.741848
+norm(∆∆s): 0.00254888
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.429234e-01
+Initial L2 norm of residual: 8.429234e-01
+Final L2 norm of residual: 8.009565e-07
+
+
+Iterations = 390
+Final Relative Residual Norm = 9.502126e-07
+
+residual: 1.0609
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.741848
+norm(∆∆s): 0.00345837
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 23919 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 13330
+unknowns: 23568. knowns: 13681
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.78208
+ 
+Populating tangent ...
+Time to populate tangent: 0.0970065
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.28882
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.288823e+00
+Initial L2 norm of residual: 1.288823e+00
+Final L2 norm of residual: 1.275564e-06
+
+
+Iterations = 433
+Final Relative Residual Norm = 9.897127e-07
+
+residual: 0.527931
+norm(∆∆s): 0.00900991
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.804090e-01
+Initial L2 norm of residual: 6.804090e-01
+Final L2 norm of residual: 6.223462e-07
+
+
+Iterations = 424
+Final Relative Residual Norm = 9.146648e-07
+
+residual: 0.450522
+norm(∆∆s): 0.00215361
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.806431e-01
+Initial L2 norm of residual: 5.806431e-01
+Final L2 norm of residual: 5.769236e-07
+
+
+Iterations = 402
+Final Relative Residual Norm = 9.935942e-07
+
+residual: 0.58104
+Globally-convergent weight: 0.08, yields new residual: 0.450493
+norm(∆∆s): 0.00219912
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.806061e-01
+Initial L2 norm of residual: 5.806061e-01
+Final L2 norm of residual: 5.456980e-07
+
+
+Iterations = 402
+Final Relative Residual Norm = 9.398763e-07
+
+residual: 0.595677
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.450493
+norm(∆∆s): 0.00225658
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 4
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 22686 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 14563
+unknowns: 22351. knowns: 14898
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.59684
+ 
+Populating tangent ...
+Time to populate tangent: 0.0916801
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.844478
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.444775e-01
+Initial L2 norm of residual: 8.444775e-01
+Final L2 norm of residual: 8.161951e-07
+
+
+Iterations = 446
+Final Relative Residual Norm = 9.665090e-07
+
+residual: 0.640325
+norm(∆∆s): 0.00835769
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.407405e-01
+Initial L2 norm of residual: 5.407405e-01
+Final L2 norm of residual: 5.272147e-07
+
+
+Iterations = 434
+Final Relative Residual Norm = 9.749865e-07
+
+residual: 0.889408
+Globally-convergent weight: 0.12, yields new residual: 0.640018
+norm(∆∆s): 0.00367599
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.404812e-01
+Initial L2 norm of residual: 5.404812e-01
+Final L2 norm of residual: 5.379083e-07
+
+
+Iterations = 434
+Final Relative Residual Norm = 9.952396e-07
+
+residual: 1.01008
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.640018
+norm(∆∆s): 0.00372763
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 21950 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 15299
+unknowns: 21615. knowns: 15634
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.51729
+ 
+Populating tangent ...
+Time to populate tangent: 0.0916917
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.807987
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.079868e-01
+Initial L2 norm of residual: 8.079868e-01
+Final L2 norm of residual: 7.920155e-07
+
+
+Iterations = 400
+Final Relative Residual Norm = 9.802332e-07
+
+residual: 0.579791
+norm(∆∆s): 0.00516558
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 4.684635e-01
+Initial L2 norm of residual: 4.684635e-01
+Final L2 norm of residual: 4.605194e-07
+
+
+Iterations = 407
+Final Relative Residual Norm = 9.830422e-07
+
+residual: 0.670851
+Globally-convergent weight: 0.59, yields new residual: 0.579115
+norm(∆∆s): 0.00341792
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 4.679176e-01
+Initial L2 norm of residual: 4.679176e-01
+Final L2 norm of residual: 4.629153e-07
+
+
+Iterations = 401
+Final Relative Residual Norm = 9.893094e-07
+
+residual: 0.983073
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.579115
+norm(∆∆s): 0.00293601
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 21286 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 15963
+unknowns: 20963. knowns: 16286
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.45603
+ 
+Populating tangent ...
+Time to populate tangent: 0.0819695
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.708809
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 7.088088e-01
+Initial L2 norm of residual: 7.088088e-01
+Final L2 norm of residual: 6.715816e-07
+
+
+Iterations = 383
+Final Relative Residual Norm = 9.474792e-07
+
+residual: 0.703684
+norm(∆∆s): 0.00521397
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 4.987774e-01
+Initial L2 norm of residual: 4.987774e-01
+Final L2 norm of residual: 4.940509e-07
+
+
+Iterations = 380
+Final Relative Residual Norm = 9.905239e-07
+
+residual: 0.957891
+Globally-convergent weight: 0.06, yields new residual: 0.703617
+norm(∆∆s): 0.0047339
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 4.987296e-01
+Initial L2 norm of residual: 4.987296e-01
+Final L2 norm of residual: 4.771899e-07
+
+
+Iterations = 380
+Final Relative Residual Norm = 9.568109e-07
+
+residual: 1.00728
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.703617
+norm(∆∆s): 0.00450951
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 21390 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 15859
+unknowns: 21084. knowns: 16165
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.4386
+ 
+Populating tangent ...
+Time to populate tangent: 0.0831099
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.728909
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 7.289095e-01
+Initial L2 norm of residual: 7.289095e-01
+Final L2 norm of residual: 7.013592e-07
+
+
+Iterations = 396
+Final Relative Residual Norm = 9.622034e-07
+
+residual: 0.790532
+norm(∆∆s): 0.00375569
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.762260e-01
+Initial L2 norm of residual: 5.762260e-01
+Final L2 norm of residual: 5.710689e-07
+
+
+Iterations = 395
+Final Relative Residual Norm = 9.910502e-07
+
+residual: 0.922446
+Globally-convergent weight: 0.49, yields new residual: 0.789606
+norm(∆∆s): 0.00340034
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.755516e-01
+Initial L2 norm of residual: 5.755516e-01
+Final L2 norm of residual: 5.690210e-07
+
+
+Iterations = 392
+Final Relative Residual Norm = 9.886534e-07
+
+residual: 1.27669
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.789606
+norm(∆∆s): 0.00315821
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 22073 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 15176
+unknowns: 21765. knowns: 15484
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.57691
+ 
+Populating tangent ...
+Time to populate tangent: 0.0816194
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.844011
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.440112e-01
+Initial L2 norm of residual: 8.440112e-01
+Final L2 norm of residual: 8.288767e-07
+
+
+Iterations = 415
+Final Relative Residual Norm = 9.820684e-07
+
+residual: 0.662978
+norm(∆∆s): 0.0052393
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.595610e-01
+Initial L2 norm of residual: 5.595610e-01
+Final L2 norm of residual: 5.510464e-07
+
+
+Iterations = 412
+Final Relative Residual Norm = 9.847835e-07
+
+residual: 0.926085
+Globally-convergent weight: 0.12, yields new residual: 0.662921
+norm(∆∆s): 0.00625096
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.595130e-01
+Initial L2 norm of residual: 5.595130e-01
+Final L2 norm of residual: 5.444405e-07
+
+
+Iterations = 413
+Final Relative Residual Norm = 9.730615e-07
+
+residual: 0.99873
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.662921
+norm(∆∆s): 0.00522853
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Determined jMax: 3
+
+Setting jMax for this loop to 3. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.0001]
+Discretizing ...
+after discretization ε = [0.0001]
+field is resolved up to level 4
+Max coefficient: [0.00035149776914931985, 0.005483754683321713, 1.433742721724346, 0.31459198429812607]
+jMRWT = 4. jMax = 3.
+ 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 23228 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 14021
+unknowns: 22908. knowns: 14341
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.63585
+ 
+Populating tangent ...
+Time to populate tangent: 0.106577
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.852485
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.524851e-01
+Initial L2 norm of residual: 8.524851e-01
+Final L2 norm of residual: 8.488671e-07
+
+
+Iterations = 427
+Final Relative Residual Norm = 9.957560e-07
+
+residual: 0.759093
+norm(∆∆s): 0.00594469
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.471156e-01
+Initial L2 norm of residual: 6.471156e-01
+Final L2 norm of residual: 6.096457e-07
+
+
+Iterations = 424
+Final Relative Residual Norm = 9.420971e-07
+
+residual: 1.03779
+Globally-convergent weight: 0.04, yields new residual: 0.759057
+norm(∆∆s): 0.00486014
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.470850e-01
+Initial L2 norm of residual: 6.470850e-01
+Final L2 norm of residual: 6.292400e-07
+
+
+Iterations = 423
+Final Relative Residual Norm = 9.724224e-07
+
+residual: 1.06924
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.759057
+norm(∆∆s): 0.00467654
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 24115 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 13134
+unknowns: 23807. knowns: 13442
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.73802
+ 
+Populating tangent ...
+Time to populate tangent: 0.11114
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.914515
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 9.145150e-01
+Initial L2 norm of residual: 9.145150e-01
+Final L2 norm of residual: 9.111790e-07
+
+
+Iterations = 421
+Final Relative Residual Norm = 9.963522e-07
+
+residual: 0.678936
+norm(∆∆s): 0.00665068
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.208968e-01
+Initial L2 norm of residual: 6.208968e-01
+Final L2 norm of residual: 6.054815e-07
+
+
+Iterations = 419
+Final Relative Residual Norm = 9.751725e-07
+
+residual: 0.8875
+Globally-convergent weight: 0.33, yields new residual: 0.678233
+norm(∆∆s): 0.00536812
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.202543e-01
+Initial L2 norm of residual: 6.202543e-01
+Final L2 norm of residual: 5.841548e-07
+
+
+Iterations = 423
+Final Relative Residual Norm = 9.417989e-07
+
+residual: 1.23196
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.678233
+norm(∆∆s): 0.00415496
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 24336 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 12913
+unknowns: 24001. knowns: 13248
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.78782
+ 
+Populating tangent ...
+Time to populate tangent: 0.101858
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.907257
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 9.072567e-01
+Initial L2 norm of residual: 9.072567e-01
+Final L2 norm of residual: 8.461507e-07
+
+
+Iterations = 424
+Final Relative Residual Norm = 9.326476e-07
+
+residual: 0.637088
+norm(∆∆s): 0.0058919
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.780027e-01
+Initial L2 norm of residual: 5.780027e-01
+Final L2 norm of residual: 5.611065e-07
+
+
+Iterations = 429
+Final Relative Residual Norm = 9.707678e-07
+
+residual: 0.941936
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.637088
+norm(∆∆s): 0.00391729
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 2
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 24882 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 12367
+unknowns: 24537. knowns: 12712
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.85111
+ 
+Populating tangent ...
+Time to populate tangent: 0.102112
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.881529
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.815291e-01
+Initial L2 norm of residual: 8.815291e-01
+Final L2 norm of residual: 8.703840e-07
+
+
+Iterations = 432
+Final Relative Residual Norm = 9.873570e-07
+
+residual: 0.535838
+norm(∆∆s): 0.00859432
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 4.723572e-01
+Initial L2 norm of residual: 4.723572e-01
+Final L2 norm of residual: 4.473763e-07
+
+
+Iterations = 423
+Final Relative Residual Norm = 9.471144e-07
+
+residual: 0.50547
+norm(∆∆s): 0.00182918
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 4.455867e-01
+Initial L2 norm of residual: 4.455867e-01
+Final L2 norm of residual: 4.308810e-07
+
+
+Iterations = 408
+Final Relative Residual Norm = 9.669971e-07
+
+residual: 0.80417
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.50547
+norm(∆∆s): 0.00239718
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 20474 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 16775
+unknowns: 20145. knowns: 17104
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.31186
+ 
+Populating tangent ...
+Time to populate tangent: 0.0670367
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.718554
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 7.185543e-01
+Initial L2 norm of residual: 7.185543e-01
+Final L2 norm of residual: 6.983307e-07
+
+
+Iterations = 357
+Final Relative Residual Norm = 9.718552e-07
+
+residual: 1.09548
+Globally-convergent weight: 0.87, yields new residual: 0.996206
+norm(∆∆s): 0.00557714
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 7.158278e-01
+Initial L2 norm of residual: 7.158278e-01
+Final L2 norm of residual: 6.915370e-07
+
+
+Iterations = 356
+Final Relative Residual Norm = 9.660661e-07
+
+residual: 1.87598
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.996206
+norm(∆∆s): 0.00561302
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 2
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 21055 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 16194
+unknowns: 20728. knowns: 16521
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.36034
+ 
+Populating tangent ...
+Time to populate tangent: 0.078912
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.0147
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.014702e+00
+Initial L2 norm of residual: 1.014702e+00
+Final L2 norm of residual: 1.002326e-06
+
+
+Iterations = 384
+Final Relative Residual Norm = 9.878031e-07
+
+residual: 0.641744
+norm(∆∆s): 0.00528285
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.511786e-01
+Initial L2 norm of residual: 6.511786e-01
+Final L2 norm of residual: 6.215820e-07
+
+
+Iterations = 379
+Final Relative Residual Norm = 9.545492e-07
+
+residual: 0.788747
+Globally-convergent weight: 0.51, yields new residual: 0.641563
+norm(∆∆s): 0.00275158
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.509953e-01
+Initial L2 norm of residual: 6.509953e-01
+Final L2 norm of residual: 6.081544e-07
+
+
+Iterations = 383
+Final Relative Residual Norm = 9.341917e-07
+
+residual: 1.21138
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.641563
+norm(∆∆s): 0.00467679
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 21038 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 16211
+unknowns: 20692. knowns: 16557
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.37957
+ 
+Populating tangent ...
+Time to populate tangent: 0.0824564
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.09696
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.096957e+00
+Initial L2 norm of residual: 1.096957e+00
+Final L2 norm of residual: 1.009181e-06
+
+
+Iterations = 368
+Final Relative Residual Norm = 9.199821e-07
+
+residual: 0.550498
+norm(∆∆s): 0.00592488
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.038729e-01
+Initial L2 norm of residual: 6.038729e-01
+Final L2 norm of residual: 5.461985e-07
+
+
+Iterations = 371
+Final Relative Residual Norm = 9.044924e-07
+
+residual: 0.943671
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.550498
+norm(∆∆s): 0.00369937
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 2
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 20629 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 16620
+unknowns: 20293. knowns: 16956
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.31127
+ 
+Populating tangent ...
+Time to populate tangent: 0.0774311
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.827045
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.270448e-01
+Initial L2 norm of residual: 8.270448e-01
+Final L2 norm of residual: 7.765409e-07
+
+
+Iterations = 345
+Final Relative Residual Norm = 9.389345e-07
+
+residual: 0.74809
+norm(∆∆s): 0.00403201
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.187042e-01
+Initial L2 norm of residual: 6.187042e-01
+Final L2 norm of residual: 5.971504e-07
+
+
+Iterations = 339
+Final Relative Residual Norm = 9.651630e-07
+
+residual: 1.12546
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.74809
+norm(∆∆s): 0.00327983
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 2
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 21585 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 15664
+unknowns: 21225. knowns: 16024
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.42044
+ 
+Populating tangent ...
+Time to populate tangent: 0.0806783
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.904685
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 9.046850e-01
+Initial L2 norm of residual: 9.046850e-01
+Final L2 norm of residual: 8.600512e-07
+
+
+Iterations = 353
+Final Relative Residual Norm = 9.506637e-07
+
+residual: 0.804039
+norm(∆∆s): 0.00635369
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 7.274019e-01
+Initial L2 norm of residual: 7.274019e-01
+Final L2 norm of residual: 7.266777e-07
+
+
+Iterations = 349
+Final Relative Residual Norm = 9.990045e-07
+
+residual: 1.20809
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.804039
+norm(∆∆s): 0.00380209
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 2
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 23120 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 14129
+unknowns: 22765. knowns: 14484
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.63735
+ 
+Populating tangent ...
+Time to populate tangent: 0.0946325
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.08957
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.089573e+00
+Initial L2 norm of residual: 1.089573e+00
+Final L2 norm of residual: 1.043640e-06
+
+
+Iterations = 378
+Final Relative Residual Norm = 9.578437e-07
+
+residual: 0.527218
+norm(∆∆s): 0.00645601
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.744428e-01
+Initial L2 norm of residual: 5.744428e-01
+Final L2 norm of residual: 5.713764e-07
+
+
+Iterations = 380
+Final Relative Residual Norm = 9.946619e-07
+
+residual: 0.720654
+Globally-convergent weight: 0.27, yields new residual: 0.527025
+norm(∆∆s): 0.0037259
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.742318e-01
+Initial L2 norm of residual: 5.742318e-01
+Final L2 norm of residual: 5.647997e-07
+
+
+Iterations = 377
+Final Relative Residual Norm = 9.835744e-07
+
+residual: 0.85302
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.527025
+norm(∆∆s): 0.00341696
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Determined jMax: 4
+
+Setting jMax for this loop to 4. 
+Reconstructing discretization operator ... 
+
+Discretizing initial conditions ...
+before discretization ε = [0.0001]
+Discretizing ...
+after discretization ε = [0.0001]
+field is resolved up to level 4
+Max coefficient: [0.0002396223913267402, 0.007013203952223096, 1.7428575217725932, 0.20186285077727312]
+jMRWT = 4. jMax = 4.
+ 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 21546 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 15703
+unknowns: 21241. knowns: 16008
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.42
+ 
+Populating tangent ...
+Time to populate tangent: 0.0841202
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.844268
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.442683e-01
+Initial L2 norm of residual: 8.442683e-01
+Final L2 norm of residual: 8.232905e-07
+
+
+Iterations = 339
+Final Relative Residual Norm = 9.751527e-07
+
+residual: 0.761271
+norm(∆∆s): 0.0053234
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.427174e-01
+Initial L2 norm of residual: 6.427174e-01
+Final L2 norm of residual: 6.118052e-07
+
+
+Iterations = 342
+Final Relative Residual Norm = 9.519040e-07
+
+residual: 1.01668
+Globally-convergent weight: 0.16, yields new residual: 0.760835
+norm(∆∆s): 0.003367
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.423489e-01
+Initial L2 norm of residual: 6.423489e-01
+Final L2 norm of residual: 6.140261e-07
+
+
+Iterations = 342
+Final Relative Residual Norm = 9.559075e-07
+
+residual: 1.13481
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.760835
+norm(∆∆s): 0.00341688
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 23847 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 13402
+unknowns: 23555. knowns: 13694
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.74845
+ 
+Populating tangent ...
+Time to populate tangent: 0.102201
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.01238
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.012376e+00
+Initial L2 norm of residual: 1.012376e+00
+Final L2 norm of residual: 9.799420e-07
+
+
+Iterations = 366
+Final Relative Residual Norm = 9.679628e-07
+
+residual: 0.815316
+norm(∆∆s): 0.0080452
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.254058e-01
+Initial L2 norm of residual: 8.254058e-01
+Final L2 norm of residual: 7.573806e-07
+
+
+Iterations = 365
+Final Relative Residual Norm = 9.175857e-07
+
+residual: 1.13682
+Globally-convergent weight: 0.08, yields new residual: 0.814987
+norm(∆∆s): 0.00540577
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.250734e-01
+Initial L2 norm of residual: 8.250734e-01
+Final L2 norm of residual: 7.358277e-07
+
+
+Iterations = 365
+Final Relative Residual Norm = 8.918331e-07
+
+residual: 1.19062
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.814987
+norm(∆∆s): 0.00534049
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 25858 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 11391
+unknowns: 25545. knowns: 11704
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.01317
+ 
+Populating tangent ...
+Time to populate tangent: 0.133666
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.24947
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.249471e+00
+Initial L2 norm of residual: 1.249471e+00
+Final L2 norm of residual: 1.207626e-06
+
+
+Iterations = 416
+Final Relative Residual Norm = 9.665101e-07
+
+residual: 0.716795
+norm(∆∆s): 0.0118042
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.956148e-01
+Initial L2 norm of residual: 8.956148e-01
+Final L2 norm of residual: 8.824831e-07
+
+
+Iterations = 410
+Final Relative Residual Norm = 9.853378e-07
+
+residual: 1.29327
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.716795
+norm(∆∆s): 0.00763009
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 2
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 27111 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 10138
+unknowns: 26792. knowns: 10457
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 3.23188
+ 
+Populating tangent ...
+Time to populate tangent: 0.126275
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.55154
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.551541e+00
+Initial L2 norm of residual: 1.551541e+00
+Final L2 norm of residual: 1.486315e-06
+
+
+Iterations = 484
+Final Relative Residual Norm = 9.579605e-07
+
+residual: 0.411321
+norm(∆∆s): 0.0161992
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.381812e-01
+Initial L2 norm of residual: 6.381812e-01
+Final L2 norm of residual: 6.242777e-07
+
+
+Iterations = 482
+Final Relative Residual Norm = 9.782139e-07
+
+residual: 0.559422
+Globally-convergent weight: 0.69, yields new residual: 0.407964
+norm(∆∆s): 0.0035178
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.329729e-01
+Initial L2 norm of residual: 6.329729e-01
+Final L2 norm of residual: 6.025495e-07
+
+
+Iterations = 501
+Final Relative Residual Norm = 9.519356e-07
+
+residual: 1.39062
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.407964
+norm(∆∆s): 0.00563368
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 23809 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 13440
+unknowns: 23474. knowns: 13775
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.70021
+ 
+Populating tangent ...
+Time to populate tangent: 0.106665
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.881007
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.810066e-01
+Initial L2 norm of residual: 8.810066e-01
+Final L2 norm of residual: 8.598611e-07
+
+
+Iterations = 411
+Final Relative Residual Norm = 9.759984e-07
+
+residual: 0.508829
+norm(∆∆s): 0.00538883
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 4.482819e-01
+Initial L2 norm of residual: 4.482819e-01
+Final L2 norm of residual: 4.395057e-07
+
+
+Iterations = 376
+Final Relative Residual Norm = 9.804228e-07
+
+residual: 0.644442
+Globally-convergent weight: 0.5, yields new residual: 0.508227
+norm(∆∆s): 0.00186171
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 4.477517e-01
+Initial L2 norm of residual: 4.477517e-01
+Final L2 norm of residual: 4.412449e-07
+
+
+Iterations = 364
+Final Relative Residual Norm = 9.854678e-07
+
+residual: 0.847876
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.508227
+norm(∆∆s): 0.00237544
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 19777 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 17472
+unknowns: 19474. knowns: 17775
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.2414
+ 
+Populating tangent ...
+Time to populate tangent: 0.0773569
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.674038
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.740384e-01
+Initial L2 norm of residual: 6.740384e-01
+Final L2 norm of residual: 6.162305e-07
+
+
+Iterations = 308
+Final Relative Residual Norm = 9.142365e-07
+
+residual: 0.858508
+norm(∆∆s): 0.0031186
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.786673e-01
+Initial L2 norm of residual: 5.786673e-01
+Final L2 norm of residual: 5.751343e-07
+
+
+Iterations = 305
+Final Relative Residual Norm = 9.938946e-07
+
+residual: 1.23974
+Globally-convergent weight: 0.32, yields new residual: 0.856478
+norm(∆∆s): 0.00295906
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.772991e-01
+Initial L2 norm of residual: 5.772991e-01
+Final L2 norm of residual: 5.717721e-07
+
+
+Iterations = 306
+Final Relative Residual Norm = 9.904261e-07
+
+residual: 1.49963
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.856478
+norm(∆∆s): 0.00333686
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 21724 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 15525
+unknowns: 21400. knowns: 15849
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.45197
+ 
+Populating tangent ...
+Time to populate tangent: 0.0829562
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.866982
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.669823e-01
+Initial L2 norm of residual: 8.669823e-01
+Final L2 norm of residual: 7.535454e-07
+
+
+Iterations = 337
+Final Relative Residual Norm = 8.691589e-07
+
+residual: 0.609132
+norm(∆∆s): 0.0056511
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.281071e-01
+Initial L2 norm of residual: 5.281071e-01
+Final L2 norm of residual: 5.095339e-07
+
+
+Iterations = 341
+Final Relative Residual Norm = 9.648307e-07
+
+residual: 0.798566
+Globally-convergent weight: 0.34, yields new residual: 0.608329
+norm(∆∆s): 0.003358
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 5.274101e-01
+Initial L2 norm of residual: 5.274101e-01
+Final L2 norm of residual: 5.131541e-07
+
+
+Iterations = 339
+Final Relative Residual Norm = 9.729698e-07
+
+residual: 1.10648
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.608329
+norm(∆∆s): 0.00345448
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 3
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 21353 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 15896
+unknowns: 21035. knowns: 16214
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.42939
+ 
+Populating tangent ...
+Time to populate tangent: 0.0850068
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 0.811971
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 8.119710e-01
+Initial L2 norm of residual: 8.119710e-01
+Final L2 norm of residual: 7.353256e-07
+
+
+Iterations = 327
+Final Relative Residual Norm = 9.056058e-07
+
+residual: 0.813727
+norm(∆∆s): 0.00621601
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.607224e-01
+Initial L2 norm of residual: 6.607224e-01
+Final L2 norm of residual: 6.293261e-07
+
+
+Iterations = 328
+Final Relative Residual Norm = 9.524818e-07
+
+residual: 1.35097
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.813727
+norm(∆∆s): 0.00561253
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 2
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 22996 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 14253
+unknowns: 22687. knowns: 14562
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.63
+ 
+Populating tangent ...
+Time to populate tangent: 0.0994336
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.07469
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.074688e+00
+Initial L2 norm of residual: 1.074688e+00
+Final L2 norm of residual: 1.006770e-06
+
+
+Iterations = 382
+Final Relative Residual Norm = 9.368024e-07
+
+residual: 0.701149
+norm(∆∆s): 0.00551879
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 7.535167e-01
+Initial L2 norm of residual: 7.535167e-01
+Final L2 norm of residual: 7.376570e-07
+
+
+Iterations = 380
+Final Relative Residual Norm = 9.789523e-07
+
+residual: 28.0032
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.701149
+norm(∆∆s): 0.0745682
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 2
+J = 4 loop finished. 
+Building the distribution ... 
+Performing BWT ...
+Thresholding ... 
+
+Computing derivatives ... 
+fMat is 193 x 193 with 20986 nonzeros 
+J = 4
+Solving using 1 process(es).
+# thresholded points = 16263
+unknowns: 20672. knowns: 16577
+Building Sparsity Pattern with MPI 
+Time to build sparsity pattern: 2.3755
+ 
+Populating tangent ...
+Time to populate tangent: 0.0743775
+ 
+Storing Triplets for all 1 Ranks ...
+Storing Rank 0 BC Tiplets ... 
+r0: 1.12338
+BEGIN NEW INNER LOOP #########################
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 1.123384e+00
+Initial L2 norm of residual: 1.123384e+00
+Final L2 norm of residual: 1.039396e-06
+
+
+Iterations = 358
+Final Relative Residual Norm = 9.252360e-07
+
+residual: 0.548845
+norm(∆∆s): 0.00492791
+ 
+Updating tangent...
+Solving for ∆∆s ... 
+
+Using GMRES solver with BoomerAMG preconditioner
+L2 norm of b: 6.165638e-01
+Initial L2 norm of residual: 6.165638e-01
+Final L2 norm of residual: 5.940566e-07
+
+
+Iterations = 358
+Final Relative Residual Norm = 9.634958e-07
+
+residual: 0.860334
+Line search found no descent along ∆∆s; rejecting Newton step.
+Globally-convergent weight: 0, yields new residual: 0.548845
+norm(∆∆s): 0.00327032
+ 
+No descent direction from this state; ending Newton pass early.
+# Newton iterations completed: 2
+J = 4 loop finished. 
+Determined jMax: 5
+j       0       1       2       3       
+1       169     156     156     144     
+2       625     598     598     566     
+3       2390    1821    1973    1698    
+4       8140    3572    4620    3717    
+5       20987   0       0       0       
+
+writing the dense geometry to VTK ...
+Loading CRC_default/1.1
